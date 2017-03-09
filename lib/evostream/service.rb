@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-module Evostream
-  module Event
-    # DSL configuration for this gem
-    class Service
-      attr_writer :uri, :name
+# :reek:Attribute
 
-      def initialize(&block)
-        instance_eval(&block) if block_given?
-      end
+module Evostream
+  # DSL configuration for this gem
+  class Service
+    attr_writer :uri, :name, :webroot
+
+    def initialize(&block)
+      instance_eval(&block) if block_given?
     end
   end
 end
