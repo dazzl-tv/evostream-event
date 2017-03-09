@@ -4,7 +4,7 @@ module Evostream
   module Event
     # DSL configuration for this gem
     class Service
-      attr_writer :uri
+      attr_writer :uri, :name
 
       def initialize(&block)
         instance_eval(&block) if block_given?
