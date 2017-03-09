@@ -3,11 +3,6 @@
 require 'evostream/info'
 require 'evostream/service'
 
-require 'evostream/events/in_stream_created'
-require 'evostream/events/in_stream_closed'
-
-require 'evostream/events/out_stream_created'
-
 module Evostream
   # Gem Evostream::Event
   module Events
@@ -26,3 +21,8 @@ module Evostream
     end
   end
 end
+
+require 'evostream/events/in_stream_created'
+require 'evostream/events/in_stream_closed'
+
+require 'evostream/events/out_stream_created'

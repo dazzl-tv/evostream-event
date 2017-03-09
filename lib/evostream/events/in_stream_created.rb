@@ -3,7 +3,7 @@
 module Evostream
   module Events
     # Action inStreamCreated
-    class InStreamCreated
+    class InStreamCreated < Event
     end
   end
 end
