@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - Gemfile
+    - evostream-event.gemspec
+    - bin/**/*
+  TargetRubyVersion: 2.3
+
+Metrics/LineLength:
+  Max: 80
