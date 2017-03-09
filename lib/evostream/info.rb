@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# :reek:TooManyConstants
+
 # @author VAILLANT Jeremy <jeremy.vaillant@dazzl.tv>
 # Define constant to gem.
 module Evostream
