@@ -37,10 +37,8 @@ module Evostream
       end
 
       def ex_flux
-        stream = Evostream::Service.uri_out
-        stream << "/#{name_settings['groupName']}"
-        stream << "/#{@request['name']}"
-        stream << "/#{name_settings[name_file]}"
+        Evostream::Service.uri_out + '/' + name_settings['groupName'] + '/' +
+          @request['name'] + '/' + name_settings[name_flux]
       end
     end
   end
