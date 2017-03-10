@@ -7,3 +7,6 @@ AllCops:
 
 Metrics/LineLength:
   Max: 80
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
