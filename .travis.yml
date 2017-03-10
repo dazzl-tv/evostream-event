@@ -8,6 +8,9 @@ rvm:
 
 before_install: gem install bundler -v 1.13.6
 
+script:
+  - rake
+
 notifications:
   email: false
   slack:
@@ -22,4 +25,4 @@ deploy:
   gem: evostream-event
   on:
     repo: Dev-Crea/evostream-event
-    branch: develop
+    all_branches: true
