@@ -41,4 +41,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'fuubar', '~> 2.2'
   spec.add_development_dependency 'pry-byebug', '~> 3.4'
   spec.add_development_dependency 'travis', '~> 1.8', '>= 1.8.4'
+  spec.add_development_dependency 'rails', '~> 4.2', '>= 4.2.8'
 end
