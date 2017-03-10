@@ -34,11 +34,11 @@ module Evostream
       end
 
       def group_name(type_flux)
-        "#{Evostream::Service.name}_#{type_flux}"
+        "#{Evostream::Service.name}#{type_flux}"
       end
 
       def stream_name
-        "#{Evostream::Service.name}_#{id_flux}"
+        "#{Evostream::Service.name}#{id_flux}"
       end
     end
   end

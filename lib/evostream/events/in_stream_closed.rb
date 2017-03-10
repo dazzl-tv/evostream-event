@@ -25,7 +25,7 @@ module Evostream
       def remove_config(flux)
         unless @config.empty?
           {
-            group_name: "#{Evostream::Service.name}_#{flux}",
+            group_name: "#{Evostream::Service.name}#{flux}",
             remove_hls_hds_files: 1
           }
         end
