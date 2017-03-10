@@ -10,7 +10,9 @@ module Evostream
   def self.send_command(cmd)
     uri = URI.parse(Evostream::Service.uri_in)
     http = Net::HTTP.new(uri.host, uri.port)
-    http.request(Net::HTTP::Get.new("/#{cmd}"))
+    command_launch = "/#{cmd}"
+    Evostream.logger "Command : #{command_launch}"
+    http.request(Net::HTTP::Get.new(command_launch))
   end
 
   def self.logger(message)
@@ -29,7 +31,7 @@ module Evostream
     def execute_action
       klass = "Evostream::Events::#{@model}".constantize
       Evostream.logger "Execute Action : #{klass}"
-      execute_klass(klass).execute if EVENTS.include?(klass)
+      execute_klass(klass) if EVENTS.include?(klass)
     end
 
     private
@@ -38,12 +40,12 @@ module Evostream
       name_flux = extract_name_flux
       Evostream.logger "Name Flux : #{name_flux}"
       case [klass]
-      when [Evostream::Events::InStreamCreated]
-        klass.new(name_flux)
-      when [Evostream::Events::InStreamClosed]
-        klass.new(name_flux)
       when [Evostream::Events::OutStreamCreated]
-        klass.new(name_flux, @payload)
+        klass.new(name_flux, @payload).execute('test')
+      else
+        # when [Evostream::Events::InStreamCreated]
+        # when [Evostream::Events::InStreamClosed]
+        klass.new(name_flux).execute
       end
     end
 
