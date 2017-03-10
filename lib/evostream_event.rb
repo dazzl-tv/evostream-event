@@ -41,7 +41,7 @@ module Evostream
       Evostream.logger "Name Flux : #{name_flux}"
       case [klass]
       when [Evostream::Events::OutStreamCreated]
-        klass.new(name_flux, @payload).execute('test')
+        klass.new(name_flux, @payload).execute
       else
         # when [Evostream::Events::InStreamCreated]
         # when [Evostream::Events::InStreamClosed]

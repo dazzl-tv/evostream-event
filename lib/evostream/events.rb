@@ -8,6 +8,7 @@ module Evostream
       def initialize(id_flux)
         Evostream.logger "Initialize event #{class_name}"
         @id_flux = id_flux
+        @model = Service.model.find_by(Service.model_id => id_flux)
       end
 
       def execute(type_flux = %w(hls dash))
@@ -25,7 +26,7 @@ module Evostream
 
       private
 
-      attr_reader :id_flux
+      attr_reader :id_flux, :model
     end
   end
 end

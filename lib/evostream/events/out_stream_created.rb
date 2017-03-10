@@ -9,10 +9,10 @@ module Evostream
         @request = request
       end
 
-      def execute(streams)
+      def execute
         super
         stream = what_flux.constantize
-        streams.push(stream.new(config_id: ex_config, flux: ex_flux))
+        model.streams.push(stream.new(config_id: ex_config, flux: ex_flux))
       end
 
       private
