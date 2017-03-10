@@ -2,4 +2,5 @@
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-require 'evostream/event'
+require 'active_support'
+require 'evostream_event'
