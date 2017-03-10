@@ -5,9 +5,9 @@
 module Evostream
   # DSL configuration for this gem
   class Service
-    mattr_accessor :web_root, :uri_in, :uri_out, :name
+    mattr_accessor :web_root, :uri_in, :uri_out, :name, :model
 
-    def self.config(&block)
+    def self.configuration(&block)
       block.call(self)
     end
   end
