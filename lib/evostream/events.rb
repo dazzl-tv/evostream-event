@@ -17,6 +17,10 @@ module Evostream
         type_flux.each { |flux| yield(flux) } if block_given?
       end
 
+      def self.descendants
+        ObjectSpace.each_object(Class).select { |klass| klass < self }
+      end
+
       private
 
       attr_reader :id_flux

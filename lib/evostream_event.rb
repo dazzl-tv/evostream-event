@@ -15,9 +15,7 @@ module Evostream
 
   # Endpoint to gem
   class Event
-    EVENTS = Evostream::Events.constants.select do |constant|
-      Evostream::Events.const_get(constant).is_a?(Class)
-    end
+    EVENTS = Evostream::Events::Event.descendants
 
     def initialize(info, payload)
       @payload = payload
