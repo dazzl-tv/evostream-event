@@ -17,9 +17,9 @@ module Evostream
   class Event
     EVENTS = Evostream::Events::Event.descendants
 
-    def initialize(info, payload)
+    def initialize(type, payload)
       @payload = payload
-      @model = info.sub(&:capitalize)
+      @model = type.sub(/^(\w)/, &:capitalize)
     end
 
     def execute_action
