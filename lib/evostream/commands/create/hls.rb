@@ -22,7 +22,7 @@ module Evostream
       private
 
       def create_master_playlist(param = 1)
-        "createMasterPlaylist=#{param}"
+        "createMasterPlaylist=#{param} "
       end
 
       # The manifest file name
@@ -35,7 +35,7 @@ module Evostream
       # chunkOnIDR=true where the EMS will wait for the next key-frame. If the
       # maxChunkLength is less than chunkLength, the parameter shall be ignored
       def max_chunk_length(param = 0)
-        "maxChunckLength=#{param} "
+        "maxChunkLength=#{param} "
       end
 
       # The base name used to generate the *.ts chunks

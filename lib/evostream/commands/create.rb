@@ -29,7 +29,7 @@ module Evostream
       # The corresponding bandwidths for each stream listed in localStreamNames.
       # Again, this can be a comma-delimited list
       def bandwidths(param = 0)
-        "bandwiths=#{param} "
+        "bandwidths=#{param} "
       end
 
       # The name assigned to the DASH stream or group. If the localStreamNames
@@ -87,7 +87,7 @@ module Evostream
       # Set this parameter to 1 (default) for a live DASH, otherwise set it to 0
       # for a VOD
       def dynamic_profile(param = 1)
-        "dynamicProfile=#{param}"
+        "dynamicProfile=#{param} "
       end
     end
   end

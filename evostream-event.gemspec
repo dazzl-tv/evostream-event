@@ -42,6 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-byebug', '~> 3.4'
   spec.add_development_dependency 'travis', '~> 1.8', '>= 1.8.4'
   spec.add_development_dependency 'rails', '~> 4.2', '>= 4.2.8'
+  spec.add_development_dependency 'faker', '~> 1.7', '>= 1.7.3'
 
   spec.add_runtime_dependency 'activesupport', '~> 4.2'
 end
