@@ -5,10 +5,10 @@
 module Evostream
   # DSL configuration for this gem
   class Service
-    attr_writer :uri_in, :uri_out, :name, :webroot
+    mattr_accessor :web_root, :uri_in, :uri_out, :name
 
-    def initialize(&block)
-      instance_eval(&block) if block_given?
+    def self.config(&block)
+      block.call(self)
     end
   end
 end

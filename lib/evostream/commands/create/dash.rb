@@ -13,7 +13,7 @@ module Evostream
 
       def cmd
         cmd_hash = command.join
-        Rails.logger.debug "createDASHStream : #{cmd_hash}"
+        Evostream.logger "createDASHStream : #{cmd_hash}"
         "createDASHStream?params=#{Base64.urlsafe_encode64(cmd_hash)}"
       end
 

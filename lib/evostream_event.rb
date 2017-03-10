@@ -13,6 +13,10 @@ module Evostream
     http.request(Net::HTTP::Get.new("/#{cmd}"))
   end
 
+  def self.logger(message)
+    Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}"
+  end
+
   # Endpoint to gem
   class Event
     EVENTS = Evostream::Events::Event.descendants
@@ -24,13 +28,15 @@ module Evostream
 
     def execute_action
       klass = "Evostream::Events::#{@model}".constantize
-      execute_klass(klass).execute if EVENTS.include?(@model)
+      Evostream.logger "Execute Action : #{klass}"
+      execute_klass(klass).execute if EVENTS.include?(klass)
     end
 
     private
 
     def execute_klass(klass)
       name_flux = extract_name_flux
+      Evostream.logger "Name Flux : #{name_flux}"
       case [klass]
       when [Evostream::Events::InStreamCreated]
         klass.new(name_flux)

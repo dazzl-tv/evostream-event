@@ -16,13 +16,13 @@ module Evostream
 
       def hls(flux)
         {
-          local_stram_names: stream_name,
+          local_stream_names: stream_name,
           target_folder: target_folder(flux),
           cleanup_destination: 1,
           group_name: group_name(flux),
           keep_alive: 1,
           chunk_length: 1,
-          playlost_length: 10,
+          playlist_length: 10,
           playlist_type: 'rolling'
         }
       end
@@ -30,7 +30,7 @@ module Evostream
       alias dash hls
 
       def target_folder(flux)
-        "#{Evostream::Service.webroot}#{group_name(flux)}/#{stream_name}"
+        "#{Evostream::Service.web_root}#{group_name(flux)}/#{stream_name}"
       end
 
       def group_name(type_flux)

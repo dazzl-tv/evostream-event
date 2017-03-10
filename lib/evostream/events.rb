@@ -6,15 +6,17 @@ module Evostream
     # Class parent for all event
     class Event
       def initialize(id_flux)
-        Rails.logger.debug "[#{Evostream::GEM_NAME}] Initialize " \
-          "event #{self.class.name.demodulize}"
+        Evostream.logger "Initialize event #{class_name}"
         @id_flux = id_flux
       end
 
       def execute(type_flux = %w(hls dash))
-        Rails.logger.debug "[#{Evostream::GEM_NAME}] Execute action " \
-          "for event #{slef.class.name.demodulize}"
+        Evostream.logger "Execute action for event #{class_name}"
         type_flux.each { |flux| yield(flux) } if block_given?
+      end
+
+      def class_name
+        self.class.name.demodulize
       end
 
       def self.descendants

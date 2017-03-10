@@ -15,7 +15,7 @@ module Evostream
 
       def cmd
         cmd_hash = command.join
-        Rails.logger.debug "createHLSStream : #{cmd_hash}"
+        Evostream.logger "createHLSStream : #{cmd_hash}"
         "createHLSStream?params=#{Base64.urlsafe_encode64(cmd_hash)}"
       end
 
