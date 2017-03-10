@@ -35,7 +35,7 @@ Manage evostream.
   POST_INSTALL = \
     "# ====================================================== #\n" \
     "# Thanks for installing EvoStream-Event !                #\n" \
-    "# #{HOMEPAGE}.   #\n" \
+    "# #{HOMEPAGE}.           #\n" \
     "# ;;;;;;;;;;;:.                                          #\n" \
     "# ;;;;;;;;;;;;;;;;;;                                     #\n" \
     "# ;;;;;;;;;;;:;;;;;;;;                                   #\n" \
