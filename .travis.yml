@@ -21,7 +21,7 @@ notifications:
 
 before_deploy:
   - gem install dpl
-  - gem update
+  - sudo gem update
 
 deploy:
   provider: rubygems
