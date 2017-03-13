@@ -21,16 +21,16 @@ module Evostream
 
       attr_reader :config
 
-      # rubocop:disable Style/GuardClause
       def remove_config(flux)
-        unless @config.empty?
+        if @config.empty?
           {
             group_name: "#{Evostream::Service.name}#{flux}",
             remove_hls_hds_files: 1
           }
+        else
+          @config
         end
       end
-      # rubocop:enable Style/GuardClause
     end
   end
 end
