@@ -34,7 +34,18 @@ gem install evostream-event
 
 ### Usage
 
-TODO: Write usage instructions here
+Create initializer :
+
+```linux
+rails generator evostream:initializer
+```
+
+Treatment evostream request :
+
+```ruby
+event = Evostream::Event.new(params[:type], params[:payload].to_unsafe_h)
+event.execute_action
+```
 
 ## Development
 
