@@ -7,10 +7,12 @@ rvm:
   - 2.3.1
 
 before_install:
-  - gem install bundler -v 1.13.6
+  - gem update --system
 
 script:
   - rake
+  - rubocop
+  - reek
 
 notifications:
   email: false
@@ -21,7 +23,6 @@ notifications:
 
 before_deploy:
   - gem install dpl
-  - sudo gem update
 
 deploy:
   provider: rubygems
@@ -31,3 +32,4 @@ deploy:
   on:
     repo: Dev-Crea/evostream-event
     all_branches: true
+  skip_cleanup: true
