@@ -12,8 +12,6 @@ before_install:
 
 script:
   - rake
-  - rubocop
-  - reek
 
 before_deploy:
   - gem install dpl
