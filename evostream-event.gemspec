@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # coding: utf-8
 
 lib = File.expand_path('../lib', __FILE__)
@@ -6,12 +7,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'evostream/info'
 
 Gem::Specification.new do |spec|
+  spec.version = if ENV['TRAVIS'] && !ENV['TRAVIS_BRANCH'].eql?('master')
+                   "#{Evostream::VERSION}-#{ENV['TRAVIS_BUILD_NUMBER']}"
+                 else
+                   Evostream::VERSION
+                 end
   spec.name          = Evostream::GEM_NAME
-  if ENV['TRAVIS'] && !ENV['TRAVIS_BRANCH'].eql?('master')
-    spec.version     = "#{Evostream::VERSION}-#{ENV['TRAVIS_BUILD_NUMBER']}"
-  else
-    spec.version     = Evostream::VERSION
-  end
   spec.authors       = Evostream::AUTHORS
   spec.email         = Evostream::EMAILS
 
@@ -23,6 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.files         = ['Gemfile', 'LICENSE', 'Rakefile', 'README.md']
   spec.files         += Dir['lib/**/*']
+  spec.files         += Dir['spec/**/*']
 
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }

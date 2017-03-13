@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    evostream-event (0.1.0.pre.6)
-      activesupport (~> 4.2)
+    evostream-event (0.1.0.pre.42)
 
 GEM
   remote: https://rubygems.org/
