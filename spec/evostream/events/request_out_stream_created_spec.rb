@@ -100,6 +100,7 @@ describe Evostream::Events::OutStreamCreated do
     context 'payload is correct' do
       let(:type) { body[:type] }
       let(:payload) { body[:payload] }
+      let(:type_stream) { 'Hls' }
 
       include_examples 'payload is correct', false
     end
@@ -192,6 +193,7 @@ describe Evostream::Events::OutStreamCreated do
     context 'payload is correct' do
       let(:type) { body[:type] }
       let(:payload) { body[:payload] }
+      let(:type_stream) { 'Dash' }
 
       include_examples 'payload is correct', false
     end

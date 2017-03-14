@@ -18,7 +18,11 @@ module Evostream
       private
 
       def what_flux
-        @request.include?(:hlsSettings, 'hlsSettings') ? 'Hls' : 'Dash'
+        hls? ? 'Hls' : 'Dash'
+      end
+
+      def hls?
+        @request.key?(:hlsSettings) || @request.key?('hlsSettings')
       end
 
       def name_flux
