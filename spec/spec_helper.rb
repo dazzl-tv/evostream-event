@@ -4,7 +4,6 @@ require 'active_support'
 require 'evostream/event'
 require 'faker'
 require 'json'
-require 'rails'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
