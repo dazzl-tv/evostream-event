@@ -8,8 +8,6 @@ module Evostream
       INITIALIZER = <<-INIT
 # frozen_string_literal: true
 
-require 'evostream_event'
-
 Evostream::Service.configuration do |config|
   config.uri_in     = 'http://server_stream.local:80'
   config.uri_out    = 'http://server_stream.local:7777'
