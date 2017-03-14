@@ -17,7 +17,7 @@ module Evostream
   end
 
   def self.logger(message)
-    Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}"
+    Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}" if defined?(Rails)
   end
 
   # Endpoint to gem
