@@ -99,9 +99,9 @@ describe Evostream::Events::OutStreamCreated do
 
     context 'payload is correct' do
       let(:type) { body[:type] }
-      let(:payload) { body[:payload].to_json }
+      let(:payload) { body[:payload] }
 
-      include_examples 'payload is correct'
+      include_examples 'payload is correct', false
     end
 
     context 'payload isn\'t correct' do
@@ -191,9 +191,9 @@ describe Evostream::Events::OutStreamCreated do
 
     context 'payload is correct' do
       let(:type) { body[:type] }
-      let(:payload) { body[:payload].to_json }
+      let(:payload) { body[:payload] }
 
-      include_examples 'payload is correct'
+      include_examples 'payload is correct', false
     end
 
     context 'payload isn\'t correct' do

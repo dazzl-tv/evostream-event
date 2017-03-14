@@ -10,15 +10,15 @@ module Evostream
       end
 
       def execute
-        super
-        stream = what_flux.constantize
-        model.streams.push(stream.new(config_id: ex_config, flux: ex_flux))
+        stream_flux = what_flux.constantize
+        model.streams.push(stream_flux.new(config_id: ex_config, flux: ex_flux))
+        model.save
       end
 
       private
 
       def what_flux
-        @request.key?('hlsSettings') ? 'Hls' : 'Dash'
+        @request.include?(:hlsSettings, 'hlsSettings') ? 'Hls' : 'Dash'
       end
 
       def name_flux

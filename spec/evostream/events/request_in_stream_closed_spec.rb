@@ -2,7 +2,11 @@
 
 require 'spec_helper'
 
-describe Evostream::Events::InStreamClosed do
+describe Evostream::Events::InStreamClosed, type: :request do
+  let(:name_stream) do
+    "#{Evostream::Service.name}#{Faker::Number.between(1, 999)}"
+  end
+
   let(:body) do
     {
       id: Faker::Number.between(1, 999_999),
@@ -24,7 +28,7 @@ describe Evostream::Events::InStreamClosed do
         farIp: Faker::Internet.ip_v4_address,
         farPort: Faker::Number.between(1, 65_536),
         ip: Faker::Internet.ip_v4_address,
-        name: "#{Faker::Zelda.character}_#{Faker::Number.between(1, 999)}",
+        name: name_stream,
         nearIp: Faker::Internet.ip_v4_address,
         nearPort: Faker::Number.between(1, 65_536),
         outStreamsUniqueIds: [
@@ -63,7 +67,7 @@ describe Evostream::Events::InStreamClosed do
 
   context 'payload is correct' do
     let(:type) { body[:type] }
-    let(:payload) { body[:payload].to_json }
+    let(:payload) { body[:payload] }
 
     include_examples 'payload is correct'
   end

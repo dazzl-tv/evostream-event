@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Evostream::Events::InStreamCreated do
+describe Evostream::Events::InStreamCreated, type: :request do
   let(:body) do
     {
       id: Faker::Number.between(1, 999_999),
@@ -60,7 +60,7 @@ describe Evostream::Events::InStreamCreated do
 
   context 'payload is correct' do
     let(:type) { body[:type] }
-    let(:payload) { body[:payload].to_json }
+    let(:payload) { body[:payload] }
 
     include_examples 'payload is correct'
   end
