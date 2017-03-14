@@ -5,6 +5,7 @@ require 'evostream/event/info'
 require 'evostream/event/service'
 require 'evostream/event/commands'
 require 'evostream/event/events'
+require 'net/http'
 
 # Primary command to gem
 module Evostream
