@@ -14,7 +14,7 @@ Evostream::Service.configuration do |config|
   config.name       = 'srteamming_'
   config.web_root   = '/var/www/html'
   config.model      = ModelUsedInDatabase
-  config.model_id   = :idenitfier_used_in_model
+  config.model_id   = :identifier_used_in_model
 end
       INIT
 
