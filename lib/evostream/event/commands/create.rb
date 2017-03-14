@@ -93,5 +93,5 @@ module Evostream
   end
 end
 
-require 'evostream/commands/create/dash'
-require 'evostream/commands/create/hls'
+require 'evostream/event/commands/create/dash'
+require 'evostream/event/commands/create/hls'

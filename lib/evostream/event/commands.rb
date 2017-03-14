@@ -15,5 +15,5 @@ module Evostream
   end
 end
 
-require 'evostream/commands/create'
-require 'evostream/commands/destroy'
+require 'evostream/event/commands/create'
+require 'evostream/event/commands/destroy'

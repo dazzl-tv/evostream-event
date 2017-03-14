@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'active_support'
-require 'evostream/info'
-require 'evostream/service'
-require 'evostream/commands'
-require 'evostream/events'
+require 'evostream/event/info'
+require 'evostream/event/service'
+require 'evostream/event/commands'
+require 'evostream/event/events'
 
 # Primary command to gem
 module Evostream

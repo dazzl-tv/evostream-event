@@ -4,7 +4,7 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'evostream/info'
+require 'evostream/event/info'
 
 Gem::Specification.new do |spec|
   spec.version = if ENV['TRAVIS'] && !ENV['TRAVIS_BRANCH'].eql?('master')

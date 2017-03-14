@@ -31,6 +31,6 @@ module Evostream
   end
 end
 
-require 'evostream/events/in_stream_created'
-require 'evostream/events/in_stream_closed'
-require 'evostream/events/out_stream_created'
+require 'evostream/event/events/in_stream_created'
+require 'evostream/event/events/in_stream_closed'
+require 'evostream/event/events/out_stream_created'
