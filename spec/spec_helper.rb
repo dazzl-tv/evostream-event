@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support'
-require 'evostream_event'
+require 'evostream/event'
 require 'faker'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
