@@ -21,7 +21,20 @@ module Evostream
     Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}" if defined?(Rails)
   end
 
-  # Endpoint to gem
+  # Send an action to evostream server
+  class Action
+    def initialize(payload)
+      @payload = payload
+    end
+
+    def execute_action(command_name)
+      cmd = command_name.sub(/^(\w)/, &:capitalize)
+      klass = "Evostream::Commands::#{cmd}".constantize
+      Evostream.send_command(klass.new(@payload))
+    end
+  end
+
+  # Reacts to event
   class Event
     EVENTS = Evostream::Events::Event.descendants
 
