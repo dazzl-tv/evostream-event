@@ -37,5 +37,8 @@ module Evostream
         "removeHlsHdsFiles=#{param} "
       end
     end
+
+    # Alias to Destroy class
+    RemoveConfig = Destroy
   end
 end
