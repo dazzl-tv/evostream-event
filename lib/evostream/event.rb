@@ -12,7 +12,7 @@ module Evostream
   def self.send_command(cmd)
     uri = URI.parse("#{Evostream::Service.uri_in}/#{cmd}")
     http = Net::HTTP.new(uri.host, uri.port)
-    http.request(Net::HTTP::Get.new(uri))
+    http.request(Net::HTTP::Get.new(uri.request_uri))
   end
 
   def self.logger(message)
