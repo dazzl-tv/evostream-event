@@ -10,11 +10,9 @@ require 'net/http'
 # Primary command to gem
 module Evostream
   def self.send_command(cmd)
-    uri = URI.parse(Evostream::Service.uri_in)
+    uri = URI.parse("#{Evostream::Service.uri_in}/#{cmd}")
     http = Net::HTTP.new(uri.host, uri.port)
-    command_launch = "/#{cmd}"
-    Evostream.logger "Command : #{command_launch}"
-    http.request(Net::HTTP::Get.new(command_launch))
+    http.request(Net::HTTP::Get.new(uri))
   end
 
   def self.logger(message)
@@ -30,7 +28,7 @@ module Evostream
     def execute_action(command_name)
       cmd = command_name.sub(/^(\w)/, &:capitalize)
       klass = "Evostream::Commands::#{cmd}".constantize
-      Evostream.send_command(klass.new(@payload))
+      Evostream.send_command(klass.new(@payload).cmd)
     end
   end
 

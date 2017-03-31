@@ -10,6 +10,10 @@ module Evostream
         super(commands)
       end
 
+      def cmd
+        "pushStream?params=#{Base64.urlsafe_encode64(command.join)}"
+      end
+
       private
 
       attr_reader :command
