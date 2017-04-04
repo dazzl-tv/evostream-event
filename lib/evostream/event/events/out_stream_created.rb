@@ -10,7 +10,7 @@ module Evostream
       end
 
       def execute
-        stream_flux = what_flux.constantize
+        stream_flux = what_flux.upcase.constantize
         model.streams.push(stream_flux.new(config_id: ex_config, flux: ex_flux))
         model.save
       end
