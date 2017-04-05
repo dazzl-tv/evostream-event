@@ -9,11 +9,13 @@ module Evostream
         Evostream.logger "Initialize event #{class_name}"
         @id_flux = id_flux
         @model = Service.model.find_by(Service.model_id => id_flux)
+        @result = nil
       end
 
-      def execute(type_flux = %w(hls dash))
+      def execute(type_flux = %w[hls dash])
         Evostream.logger "Execute action for event #{class_name}"
         type_flux.each { |flux| yield(flux) } if block_given?
+        @result
       end
 
       def class_name
@@ -27,6 +29,7 @@ module Evostream
       private
 
       attr_reader :id_flux, :model
+      attr_accessor :result
     end
   end
 end

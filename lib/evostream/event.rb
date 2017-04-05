@@ -12,13 +12,21 @@ module Evostream
   def self.send_command(cmd)
     uri = URI.parse("#{Evostream::Service.uri_in}/#{cmd}")
     http = Net::HTTP.new(uri.host, uri.port)
-    http.request(Net::HTTP::Get.new(uri.request_uri))
+    response = http.request(Net::HTTP::Get.new(uri.request_uri))
+    body = JSON.parse(response.body).to_hash
+    { status: Evostream.status(body), message: body['description'] }
   end
 
   def self.logger(message)
     Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}" if defined?(Rails)
   end
 
+  def self.status(body)
+    body['status'].eql?('FAIL') ? 403 : 200
+  end
+end
+
+module Evostream
   # Send an action to evostream server
   class Action
     def initialize(payload)

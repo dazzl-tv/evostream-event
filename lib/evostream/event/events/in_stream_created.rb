@@ -8,7 +8,7 @@ module Evostream
         super do |type_flux|
           klass = "Evostream::Commands::Create#{type_flux.upcase}".constantize
           command = send(type_flux, type_flux)
-          Evostream.send_command(klass.new(command).cmd)
+          @result = Evostream.send_command(klass.new(command).cmd)
         end
       end
 
