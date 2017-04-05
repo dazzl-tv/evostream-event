@@ -10,13 +10,13 @@ require 'net/http'
 # Primary command to gem
 module Evostream
   def self.send_command(cmd)
-    response = prepare_command(cmd)
+    response = prepare_request(cmd)
     body = JSON.parse(response.body).to_hash
     { status: Evostream.status(body), message: body['description'] }
   end
 
   def self.send_command_action(cmd)
-    response = prepare_command(cmd)
+    response = prepare_request(cmd)
     body = response.body
     if body.blank?
       { status: 403, message: 'Error with evostream !' }
