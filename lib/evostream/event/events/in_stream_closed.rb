@@ -12,8 +12,8 @@ module Evostream
       def execute
         super do |type_flux|
           klass = Evostream::Commands::Destroy.new(remove_config(type_flux))
-          Evostream.send_command(klass.cmd)
-          yield if block_given?
+          @result = Evostream.send_command(klass.cmd)
+          # yield if block_given?
         end
       end
 

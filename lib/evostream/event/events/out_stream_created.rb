@@ -13,6 +13,7 @@ module Evostream
         stream_flux = what_flux.upcase.constantize
         model.streams.push(stream_flux.new(config_id: ex_config, flux: ex_flux))
         model.save
+        @result = { status: 201, message: 'Action successfully executed.' }
       end
 
       private

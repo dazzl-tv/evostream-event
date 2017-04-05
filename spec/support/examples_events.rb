@@ -4,11 +4,7 @@ RSpec.shared_examples 'payload is correct' do |request = true|
   include_examples 'body type'
   include_examples 'evostream::event new'
   include_examples 'instance variable model'
-  if request
-    include_examples 'request test'
-  else
-    include_examples 'type stream'
-  end
+  include_examples 'type stream' unless request
   it { expect(type).to eql(type_default) }
 end
 
@@ -32,11 +28,6 @@ RSpec.shared_examples 'instance variable model' do
   let(:evo) { Evostream::Event.new(type, payload.to_json) }
 
   it { expect(evo.instance_variable_get(:@model)).to eql(model) }
-end
-
-RSpec.shared_examples 'request test' do
-  let(:response) { Evostream::Event.new(type, payload).execute_action }
-  it { expect(response).to be_an_instance_of(Array) }
 end
 
 RSpec.shared_examples 'type stream' do
