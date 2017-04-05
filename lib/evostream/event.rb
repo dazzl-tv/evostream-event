@@ -10,11 +10,20 @@ require 'net/http'
 # Primary command to gem
 module Evostream
   def self.send_command(cmd)
-    uri = URI.parse("#{Evostream::Service.uri_in}/#{cmd}")
-    http = Net::HTTP.new(uri.host, uri.port)
-    response = http.request(Net::HTTP::Get.new(uri.request_uri))
+    response = prepare_command(cmd)
     body = JSON.parse(response.body).to_hash
     { status: Evostream.status(body), message: body['description'] }
+  end
+
+  def self.send_command_action(cmd)
+    response = prepare_command(cmd)
+    body = response.body
+    if body.blank?
+      { status: 403, message: 'Error with evostream !' }
+    else
+      body = JSON.parse(body).to_hash
+      { status: 200, message: body['description'] }
+    end
   end
 
   def self.logger(message)
@@ -23,6 +32,12 @@ module Evostream
 
   def self.status(body)
     body['status'].eql?('FAIL') ? 403 : 200
+  end
+
+  def self.prepare_request(cmd)
+    uri = URI.parse("#{Evostream::Service.uri_in}/#{cmd}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.request(Net::HTTP::Get.new(uri.request_uri))
   end
 end
 
@@ -36,7 +51,7 @@ module Evostream
     def execute_action(command_name)
       cmd = command_name.sub(/^(\w)/, &:capitalize)
       klass = "Evostream::Commands::#{cmd}".constantize
-      Evostream.send_command(klass.new(@payload).cmd)
+      Evostream.send_command_action(klass.new(@payload).cmd)
     end
   end
 
