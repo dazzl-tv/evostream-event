@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### [Added]
 - Method for listing all events compatible with gem
 
+### [Fixed]
+- Response body is empty return 204
+
 ## [0.2.4] - 2017-04-05
 ### [Fixed]
 - Format response
