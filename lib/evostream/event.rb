@@ -7,11 +7,13 @@ require 'evostream/event/commands'
 require 'evostream/event/events'
 require 'net/http'
 
+# :reek:DuplicateMethod
+
 # Primary command to gem
 module Evostream
   def self.send_command(cmd)
     response = prepare_request(cmd)
-    body = JSON.parse(response.body).to_hash
+    body = response.body.nil? ? {} : JSON.parse(response.body).to_hash
     { status: Evostream.status(body), message: body['description'] }
   end
 
@@ -31,7 +33,13 @@ module Evostream
   end
 
   def self.status(body)
-    body['status'].eql?('FAIL') ? 403 : 200
+    if body['status'].eql?('FAIL')
+      403
+    elsif body.empty?
+      204
+    else
+      200
+    end
   end
 
   def self.prepare_request(cmd)
