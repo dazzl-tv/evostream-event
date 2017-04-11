@@ -26,6 +26,12 @@ module Evostream
         ObjectSpace.each_object(Class).select { |klass| klass < self }
       end
 
+      def self.all_event
+        descendants.collect do |klass|
+          klass.to_s.split('::').last.camelize(:lower)
+        end
+      end
+
       private
 
       attr_reader :id_flux, :model
