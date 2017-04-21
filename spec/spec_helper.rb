@@ -41,6 +41,10 @@ RSpec.configure do |config|
       .with(headers: { 'Accept': '*/*', 'User-Agent': 'Ruby' })
       .to_return(status: 200, body: '', headers: {})
   end
+
+  config.before(:each, type: :response) do
+    stub_request(:any, /server_stream.local/).to_rack(FakeEvostream)
+  end
 end
 
 # Class for testing
