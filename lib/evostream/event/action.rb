@@ -10,7 +10,7 @@ module Evostream
     def execute_action(command_name)
       cmd = command_name.sub(/^(\w)/, &:capitalize)
       klass = "Evostream::Commands::#{cmd}".constantize
-      Evostream.send_command_action(klass.new(@payload).cmd)
+      Evostream.send_command(klass.new(@payload).cmd)
     end
   end
 end

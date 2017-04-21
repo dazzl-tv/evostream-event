@@ -11,14 +11,14 @@ module Evostream
 
         @status = define_status
         @message = define_message
-        @data = define_data
+        @data = @evostream.body if @status.eql?(200)
       end
 
       def message
         {
           status: @status,
           message: @message,
-          body: @data
+          data: @data
         }.to_json
       end
 
@@ -30,10 +30,13 @@ module Evostream
 
       attr_accessor :evostream
 
+      # :reek:Nilcheck
+
       def define_status
-        if @evostream['status'].eql?('FAIL')
+        body = @evostream.body
+        if @evostream['status'].eql?('FAIL') || defined? body && body.nil?
           500
-        elsif @evostream.empty?
+        elsif !defined? body
           204
         else
           200
@@ -48,11 +51,6 @@ module Evostream
         else
           'Object was successfully updated.'
         end
-      end
-
-      def define_data
-        @data = @evostream.body unless @status.eql?(500) || @status.eql?(204)
-        Evostream.logger "Response evostram : #{@data.inspect}"
       end
     end
   end
