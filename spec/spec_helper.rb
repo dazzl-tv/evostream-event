@@ -6,6 +6,7 @@ require 'faker'
 require 'json'
 require 'webmock/rspec'
 require 'capybara/rspec'
+require 'active_support/core_ext/hash'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 

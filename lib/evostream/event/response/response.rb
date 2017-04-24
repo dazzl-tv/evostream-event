@@ -7,19 +7,19 @@ module Evostream
       attr_reader :status, :message, :data
 
       def initialize(evostream_response)
-        @evostream = evostream_response
+        @evostream = evostream_response.body
 
         @status = define_status
         @message = define_message
-        @data = @evostream.body if @status.eql?(200)
+        @data = @evostream['data'] if @status.eql?(200)
       end
 
       def message
         {
           status: @status,
           message: @message,
-          data: @data
-        }.to_json
+          data: @data.to_hash
+        }.with_indifferent_access
       end
 
       def data
@@ -30,26 +30,18 @@ module Evostream
 
       attr_accessor :evostream
 
-      # :reek:Nilcheck
-
       def define_status
-        body = @evostream.body
-        if @evostream['status'].eql?('FAIL') || defined? body && body.nil?
-          500
-        elsif !defined? body
-          204
-        else
-          200
+        case @evostream['status']
+        when 'FAIL' then 500
+        when 'SUCCESS' then 200
         end
       end
 
       def define_message
         if @status.eql?(500)
           'Error with EvoStream server.'
-        elsif @status.eql?(204)
-          'Object was successfully created.'
         else
-          'Object was successfully updated.'
+          'Object was successfully created/updated.'
         end
       end
     end
