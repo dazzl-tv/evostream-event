@@ -1,0 +1,50 @@
+{
+  "appName": "evostreamms",
+  "audio": {
+    "bytesCount": 0,
+    "codec": "AUNK",
+    "codecNumeric": 4707755069515235328,
+    "droppedBytesCount": 0,
+    "droppedPacketsCount": 0,
+    "packetsCount": 0
+  }
+  "bandwidth": 0,
+  "connectionType": 1,
+  "creationTimestamp": 1361182998409.229,
+  "ip": "192.168.1.130",
+  "name": "test",
+  "port": 49730,
+  "pullSettings": {
+    "audioCodecBytes": null,
+    "configId": 1,
+    "emulateUserAgent": "EvoStream Media Server (www.evostream.com) player",
+    "forceTcp": false,
+    "isAudio": true,
+    "keepAlive": true,
+    "localStreamName": test,
+    "operationType": 1,
+    "pageUrl": null,
+    "ppsBytes": null,
+    "rtcpDetectionInterval": 10,
+    "spsBytes": null,
+    "ssmIp": null,
+    "swfUrl": null,
+    "tcUrl": null,
+    "tos": 256,
+    "ttl": 256,
+    "uri": "rtmp://cp76072.live.edgefcs.net/live/MED-HQ-Flash@42814"
+  },
+  "queryTimestamp": 1361182998424.829,
+  "type": "INR",
+  "typeNumeric": 5282249572905648128,
+  "uniqueId": 2,
+  "upTime": 15.600,
+  "video": {
+    "bytesCount": 0,
+    "codec": "VUNK",
+    "codecNumeric": 6220964544311721984,
+    "droppedBytesCount": 0,
+    "droppedPacketsCount": 0,
+    "packetsCount": 0
+  }
+}
