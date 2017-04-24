@@ -37,7 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.5', '>= 3.5.0'
   spec.add_development_dependency 'overcommit', '~> 0.34.2'
-  spec.add_development_dependency 'rubocop', '~> 0.42.0'
+  spec.add_development_dependency 'rubocop', '~> 0.48.0'
   spec.add_development_dependency 'yard', '~> 0.9.5'
   spec.add_development_dependency 'reek', '~> 4.2', '>= 4.2.4'
   spec.add_development_dependency 'fuubar', '~> 2.2'
