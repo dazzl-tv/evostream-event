@@ -2,11 +2,13 @@
 
 require 'spec_helper'
 
-RSpec.describe 'PushStream', type: :response,
-                             name: :pushCommand do
-  uri = URI('http://server_stream.local/pushCommand')
+feature 'PushStream', type: :response,
+                      name: :pushStream do
+  it do
+    uri = URI('http://server_stream.local/pushStream?params=dXJpPXJ0')
 
-  response = JSON.parse(Net::HTTP.get(uri))
+    response = JSON.parse(Net::HTTP.get(uri))
 
-  expect(response['data']['configId']).to eq(6)
+    expect(response['data']['configId']).to eq(6)
+  end
 end

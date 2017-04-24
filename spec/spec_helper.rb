@@ -5,6 +5,7 @@ require 'evostream/event'
 require 'faker'
 require 'json'
 require 'webmock/rspec'
+require 'capybara/rspec'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
@@ -16,6 +17,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # Disable all remote connections
+  WebMock.disable_net_connect!(allow_localhost: true)
 
   # Exclude spec broken
   config.filter_run_excluding broken: true
@@ -31,9 +35,6 @@ RSpec.configure do |config|
       c.model_id   = :identifier_used_in_model
     end
   end
-
-  # Disable all remote connections
-  WebMock.disable_net_connect!(allow_localhost: true)
 
   # Configure test Net::HTTP
   config.before(:each, type: :request) do
