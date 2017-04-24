@@ -47,4 +47,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 2.3', '>= 2.3.2'
   spec.add_development_dependency 'sinatra', '~> 2.0.0.rc2'
   spec.add_development_dependency 'capybara', '~> 2.13'
+  spec.add_development_dependency 'activesupport', '~> 4.2'
 end
