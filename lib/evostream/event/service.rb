@@ -16,7 +16,11 @@ module Evostream
     # :test         -- Dont send command to EvoStream instance
     # :production   -- Execute command HTTP
     def self.environment
-      @environment || :production
+      @@environment || :test
+    end
+
+    def self.web_root
+      @@web_root = '/var/www/html'
     end
   end
 end
