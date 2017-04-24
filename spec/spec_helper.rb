@@ -5,6 +5,8 @@ require 'evostream/event'
 require 'faker'
 require 'json'
 require 'webmock/rspec'
+require 'capybara/rspec'
+require 'active_support/core_ext/hash'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
@@ -16,6 +18,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # Disable all remote connections
+  WebMock.disable_net_connect!(allow_localhost: true)
 
   # Exclude spec broken
   config.filter_run_excluding broken: true
@@ -32,14 +37,15 @@ RSpec.configure do |config|
     end
   end
 
-  # Disable all remote connections
-  WebMock.disable_net_connect!(allow_localhost: true)
-
   # Configure test Net::HTTP
   config.before(:each, type: :request) do
     stub_request(:get, /server_stream.local/)
       .with(headers: { 'Accept': '*/*', 'User-Agent': 'Ruby' })
       .to_return(status: 200, body: '', headers: {})
+  end
+
+  config.before(:each, type: :response) do
+    stub_request(:any, /server_stream.local/).to_rack(FakeEvostream)
   end
 end
 

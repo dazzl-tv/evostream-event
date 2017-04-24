@@ -4,97 +4,51 @@ require 'active_support'
 require 'evostream/event/info'
 require 'evostream/event/service'
 require 'evostream/event/commands'
-require 'evostream/event/events'
+require 'evostream/event/event'
+require 'evostream/event/action'
+require 'evostream/event/response/response'
 require 'net/http'
-
-# :reek:DuplicateMethod
+require 'evostream/event/response/mock'
 
 # Primary command to gem
 module Evostream
   def self.send_command(cmd)
-    response = prepare_request(cmd)
-    body = response.body.nil? ? {} : JSON.parse(response.body).to_hash
-    { status: Evostream.status(body), message: body['description'] }
-  end
-
-  def self.send_command_action(cmd)
-    response = prepare_request(cmd)
-    body = response.body
-    if body.blank?
-      { status: 403, message: 'Error with evostream !' }
-    else
-      body = JSON.parse(body).to_hash
-      { status: 200, message: body['description'] }
-    end
+    Evostream.logger "CMD : #{cmd}"
+    Evostream::Response::JSON.new(prepare_request(cmd)).message
   end
 
   def self.logger(message)
     Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}" if defined?(Rails)
   end
 
-  def self.status(body)
-    if body['status'].eql?('FAIL')
-      403
-    elsif body.empty?
-      204
-    else
-      200
-    end
-  end
-
   def self.prepare_request(cmd)
-    uri = URI.parse("#{Evostream::Service.uri_in}/#{cmd}")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.request(Net::HTTP::Get.new(uri.request_uri))
-  end
-end
-
-module Evostream
-  # Send an action to evostream server
-  class Action
-    def initialize(payload)
-      @payload = payload
-    end
-
-    def execute_action(command_name)
-      cmd = command_name.sub(/^(\w)/, &:capitalize)
-      klass = "Evostream::Commands::#{cmd}".constantize
-      Evostream.send_command_action(klass.new(@payload).cmd)
+    if Evostream::Service.environment.eql?(:test)
+      Evostream.request_test(cmd)
+    else
+      Evostream.request_real(URI.parse("#{Evostream::Service.uri_in}/#{cmd}"))
     end
   end
 
-  # Reacts to event
-  class Event
-    EVENTS = Evostream::Events::Event.descendants
+  class << self
+    private_class_method
 
-    def initialize(type, payload)
-      @payload = payload
-      @model = type.sub(/^(\w)/, &:capitalize)
+    def request_test(command)
+      json = JSON.parse(File.read(find_fixture(command)))
+      Net::HTTPSuccess.mock(json)
     end
 
-    def execute_action
-      klass = "Evostream::Events::#{@model}".constantize
-      Evostream.logger "Execute Action : #{klass}"
-      execute_klass(klass) if EVENTS.include?(klass)
+    def request_real(uri)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.request(Net::HTTP::Get.new(uri.request_uri))
     end
 
-    private
-
-    def execute_klass(klass)
-      name_flux = extract_name_flux
-      Evostream.logger "Name Flux : #{name_flux}"
-      case [klass]
-      when [Evostream::Events::OutStreamCreated]
-        klass.new(name_flux, @payload).execute
-      else
-        # when [Evostream::Events::InStreamCreated]
-        # when [Evostream::Events::InStreamClosed]
-        klass.new(name_flux).execute
-      end
+    def path_fixture
+      File.realpath(File.join(File.dirname(__FILE__), '..', '..', 'spec',
+                              'support', 'fixtures'))
     end
 
-    def extract_name_flux
-      @payload[:name].gsub(Evostream::Service.name, '')
+    def find_fixture(command)
+      File.join(path_fixture, "#{command.split('?')[0].underscore}.json")
     end
   end
 end
