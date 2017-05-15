@@ -3,11 +3,11 @@
 module Evostream
   module Response
     # Return a response to JSON format
-    class JSON
+    class FormatJson
       attr_reader :status, :message, :data
 
       def initialize(evostream_response)
-        @evostream = evostream_response.body
+        @evostream = JSON.parse(evostream_response.body.to_s)
 
         @status = define_status
         @message = define_message
@@ -18,7 +18,7 @@ module Evostream
         {
           status: @status,
           message: @message,
-          data: @data.to_hash
+          data: @data
         }.with_indifferent_access
       end
 
@@ -42,6 +42,14 @@ module Evostream
           'Error with EvoStream server.'
         else
           'Object was successfully created/updated.'
+        end
+      end
+
+      def extract_data
+        if @status.eql?(200)
+          @data = @evostream['data']
+        else
+          {}
         end
       end
     end
