@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.2.7] - 2017-05-16
+### [Added]
+- Add command listConfig
+
 ### [Fixed]
+- Change method encode base 64, use strict instead of urlsafe
 - Use Hash response with symbol
 - Refractoring response
 - ~~Fix json response~~

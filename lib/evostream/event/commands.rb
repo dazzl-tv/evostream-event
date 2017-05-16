@@ -18,3 +18,4 @@ end
 require 'evostream/event/commands/create'
 require 'evostream/event/commands/destroy'
 require 'evostream/event/commands/push_stream'
+require 'evostream/event/commands/list_config'

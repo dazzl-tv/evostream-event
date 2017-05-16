@@ -3,7 +3,7 @@
 module Evostream
   # Send an action to evostream server
   class Action
-    def initialize(payload)
+    def initialize(payload = {})
       @payload = payload
     end
 
