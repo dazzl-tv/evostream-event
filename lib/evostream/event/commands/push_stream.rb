@@ -14,7 +14,7 @@ module Evostream
         base = command.join
         Evostream.logger "Parameters : #{base}"
         string = Base64.strict_encode64(base)
-        Evostream.logger "Base 64 decoded : #{Base64.strict_decoded64(string)}"
+        Evostream.logger "Base 64 decoded : #{Base64.strict_decode64(string)}"
         "pushStream?params=#{string}"
       end
 
