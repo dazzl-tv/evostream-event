@@ -5,11 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-
-## [0.2.7] - 2017-05-15
+## [0.2.7] - 2017-05-16
 ### [Fixed]
+- Use Hash response with symbol
 - Refractoring response
-- Fix json response
+- ~~Fix json response~~
 
 ## [0.2.6] - 2017-04-24
 ### [Fixed]

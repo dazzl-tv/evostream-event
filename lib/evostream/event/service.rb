@@ -7,7 +7,7 @@ module Evostream
   # DSL configuration for this gem
   class Service
     mattr_accessor :web_root, :uri_in, :uri_out, :name, :model, :model_id,
-                   :environment, :response_format
+                   :environment
 
     def self.configuration(&block)
       block.call(self)
@@ -22,10 +22,6 @@ module Evostream
 
     def self.web_root
       @@web_root || '/var/www/html'
-    end
-
-    def self.response_format
-      @@response_format || :json
     end
   end
 end
