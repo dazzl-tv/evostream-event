@@ -18,13 +18,17 @@ module Evostream
   end
 
   def self.logger(message)
-    Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}" if defined?(Rails)
+    Rails.logger.debug "[#{Evostream::GEM_NAME}] #{message}" \
+      if Evostream::Service.environment.eql?('development') && defined?(Rails)
   end
 
   def self.prepare_request(cmd)
-    if Evostream::Service.environment.eql?(:test)
+    env = Evostream::Service.environment.to_sym
+    Evostream.logger "ENV  ------> #{env}"
+    case env
+    when :test
       Evostream.request_test(cmd)
-    else
+    when :development, :production
       Evostream.request_real(URI.parse("#{Evostream::Service.uri_in}/#{cmd}"))
     end
   end
