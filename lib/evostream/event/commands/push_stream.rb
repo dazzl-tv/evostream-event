@@ -11,7 +11,7 @@ module Evostream
       end
 
       def cmd
-        "pushStream?params=#{Base64.urlsafe_encode64(command.join)}"
+        "pushStream?params=#{Base64.strict_encode64(command.join)}"
       end
 
       private
