@@ -15,6 +15,7 @@ module Evostream
 
     # Environment for this gem
     # :test         -- Dont send command to EvoStream instance
+    # :development  -- Dont send command to EvoStream instance and write logs
     # :production   -- Execute command HTTP
     def self.environment
       @@environment || :test
