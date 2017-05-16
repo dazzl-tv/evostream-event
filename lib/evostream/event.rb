@@ -14,7 +14,7 @@ require 'evostream/event/response/mock'
 module Evostream
   def self.send_command(cmd)
     Evostream.logger "CMD : #{cmd}"
-    Evostream::Response::JSON.new(prepare_request(cmd)).message
+    Evostream::Responses.new(prepare_request(cmd)).message
   end
 
   def self.logger(message)

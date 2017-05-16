@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Evostream::Action, type: :request do
+describe Evostream::Action, type: :request, broken: true do
   let(:action) { Evostream::Action.new(payload) }
   let(:payload) { {} }
 

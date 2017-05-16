@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # :reek:Attribute
+# :reek:ClassVariable
 
 module Evostream
   # DSL configuration for this gem
@@ -20,7 +21,7 @@ module Evostream
     end
 
     def self.web_root
-      @@web_root = '/var/www/html'
+      @@web_root || '/var/www/html'
     end
   end
 end
