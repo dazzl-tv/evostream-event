@@ -10,7 +10,7 @@ module Evostream
       end
 
       def cmd
-        "removeConfig?params=#{Base64.urlsafe_encode64(command.join)}"
+        "removeConfig?params=#{encode_64}"
       end
 
       private
@@ -21,20 +21,20 @@ module Evostream
       # can be obtained from the listConfig interface. Removing an inbound
       # stream will also automatically remove all associated outbound streams.
       def id(param = 'null')
-        "id=#{param} "
+        "id=#{param}"
       end
 
       # The name of the group that needs to be removed (applicable to HLS, HDS
       # and external processes). *Mandatory only if the id parameter is not
       # specified.
       def group_name(param = 'null')
-        "groupName=#{param} "
+        "groupName=#{param}"
       end
 
       # If 1 (true) and the stream is HLS or HDS, the folder associated with it
       # will be removed
       def remove_hls_hds_files(param = 0)
-        "removeHlsHdsFiles=#{param} "
+        "removeHlsHdsFiles=#{param}"
       end
     end
 

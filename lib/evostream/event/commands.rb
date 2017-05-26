@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# :reek:UncommunicativeMethodName
+
 module Evostream
   # Manage command
   module Commands
@@ -10,6 +12,13 @@ module Evostream
         commands.each do |command_name, command_param|
           @command.push send(command_name, command_param)
         end
+      end
+
+      private
+
+      # Encode commands in base 64 with space between each command
+      def encode_64
+        Base64.strict_encode64(@command.join(' '))
       end
     end
   end

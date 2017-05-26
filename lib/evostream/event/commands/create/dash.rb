@@ -12,16 +12,14 @@ module Evostream
       end
 
       def cmd
-        cmd_hash = command.join
-        Evostream.logger "createDASHStream : #{cmd_hash}"
-        "createDASHStream?params=#{Base64.urlsafe_encode64(cmd_hash)}"
+        "createDASHStream?params=#{encode_64}"
       end
 
       private
 
       # The manifest file name
       def manifest_name(param = 'manifest.mpd')
-        "manifestName=#{param} "
+        "manifestName=#{param}"
       end
     end
   end

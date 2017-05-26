@@ -9,7 +9,7 @@ module Evostream
       end
 
       def cmd
-        "listStreams?params=#{Base64.encode64(command.join)}"
+        "listStreams?params=#{encode_64}"
       end
 
       private
@@ -19,7 +19,7 @@ module Evostream
       # If this is 1 (true), internal streams (origin-edge related)
       # are filtered out from the list
       def disable_internal_streams(param = 'true')
-        "disableInternalStreams=#{param} "
+        "disableInternalStreams=#{param}"
       end
     end
   end
