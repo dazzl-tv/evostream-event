@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    evostream-event (0.2.7.pre.42)
+    evostream-event (0.3.1.pre.42)
 
 GEM
   remote: https://rubygems.org/
@@ -186,4 +186,4 @@ DEPENDENCIES
   yard (~> 0.9.5)
 
 BUNDLED WITH
-   1.14.6
+   1.15.3

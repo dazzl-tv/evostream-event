@@ -11,11 +11,7 @@ module Evostream
       end
 
       def cmd
-        base = command.join
-        Evostream.logger "Parameters : #{base}"
-        string = Base64.strict_encode64(base)
-        Evostream.logger "Base 64 decoded : #{Base64.strict_decode64(string)}"
-        "pushStream?params=#{string}"
+        "pushStream?params=#{encode_64}"
       end
 
       private
@@ -25,19 +21,19 @@ module Evostream
       # TheURI of the external stream. Can be RTMP, RTSP or unicast/multicast
       # (d) mpegts
       def uri(param = 'null')
-        "uri=#{param} "
+        "uri=#{param}"
       end
 
       # If provided, the stream will be given this name. Otherwise, a fallback
       # techniqueis used to determine the stream name (based on the URI)
       def local_stream_name(param = '')
-        "localStreamName=#{param} "
+        "localStreamName=#{param}"
       end
 
       # The name of the stream at destination. If not provided, the target
       # stream name willbe the same as the local stream name
       def target_stream_name(param = 'null')
-        "targetStreamName=#{param} "
+        "targetStreamName=#{param}"
       end
     end
   end

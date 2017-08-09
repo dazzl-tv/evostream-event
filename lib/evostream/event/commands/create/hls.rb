@@ -14,20 +14,18 @@ module Evostream
       end
 
       def cmd
-        cmd_hash = command.join
-        Evostream.logger "createHLSStream : #{cmd_hash}"
-        "createHLSStream?params=#{Base64.urlsafe_encode64(cmd_hash)}"
+        "createHLSStream?params=#{encode_64}"
       end
 
       private
 
       def create_master_playlist(param = 1)
-        "createMasterPlaylist=#{param} "
+        "createMasterPlaylist=#{param}"
       end
 
       # The manifest file name
       def playlist_name(param = 'playlist.m3u8')
-        "playlistName=#{param} "
+        "playlistName=#{param}"
       end
 
       # This parameter represents the maximum length, in seconds, the EMS will
@@ -35,12 +33,12 @@ module Evostream
       # chunkOnIDR=true where the EMS will wait for the next key-frame. If the
       # maxChunkLength is less than chunkLength, the parameter shall be ignored
       def max_chunk_length(param = 0)
-        "maxChunkLength=#{param} "
+        "maxChunkLength=#{param}"
       end
 
       # The base name used to generate the *.ts chunks
       def chunk_base_name(param = 'segment')
-        "chunkBaseName=#{param} "
+        "chunkBaseName=#{param}"
       end
 
       # Sets the type of DRM encryption to use.  Options are: none (no
@@ -48,36 +46,36 @@ module Evostream
       # (Verimatrix DRM). For Verimatrix DRM, the 'drm' section of the
       # config.lua file must be active and properly configured
       def drm_type(param = 'none')
-        "drmType=#{param} "
+        "drmType=#{param}"
       end
 
       # Specifies the number of keys that will be automatically generated and
       # rotated over while encrypting this HLS stream
       def aes_key_count(param = 5)
-        "AESKeyCount=#{param} "
+        "AESKeyCount=#{param}"
       end
 
       # Specifies if the resulting stream will be audio only. A value of 1(true)
       # will result in a stream without video
       def audio_only(param = 0)
-        "audioOnly=#{param} "
+        "audioOnly=#{param}"
       end
 
       # If true, HLS will resume in appending segments to previously created
       # childplaylist even in cases of EMS shutdown or cut off stream source
       def hls_resume(param = 0)
-        "hlsResume=#{param} "
+        "hlsResume=#{param}"
       end
 
       # If true, corresponding hls files to a stream will be deleted if the said
       # stream is removed or shut down or disconnected
       def cleanup_on_close(param = 0)
-        "cleanupOnClose=#{param} "
+        "cleanupOnClose=#{param}"
       end
 
       # If true, will use the EXT-X-BYTERANGE feature of HLS (version 4 and up)
       def use_byte_range(param = 0)
-        "useByteRange=#{param} "
+        "useByteRange=#{param}"
       end
 
       # When using useByteRange=1, this parameter needs to be set too. This will
@@ -85,23 +83,23 @@ module Evostream
       # chunkLength in case of EXT-X-BYTERANGE, since chunkLength will be the
       # byte range chunk
       def file_length(param = 0)
-        "fileLength=#{param} "
+        "fileLength=#{param}"
       end
 
       # If true, uses UTC in playlist time stamp otherwise will use the local
       # server time
       def use_system_time(param = 0)
-        "useSystemTime=#{param} "
+        "useSystemTime=#{param}"
       end
 
       def offset_time(param = 0)
-        "offsetTime=#{param} "
+        "offsetTime=#{param}"
       end
 
       # A parameter valid only for HLS v.6 onwards. This will indicate the start
       # offset time (in seconds) for the playback of the playlist
       def start_offset(param = 0)
-        "startOffset=#{param} "
+        "startOffset=#{param}"
       end
     end
   end

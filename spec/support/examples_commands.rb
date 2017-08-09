@@ -6,5 +6,7 @@ RSpec.shared_examples 'command' do
   let(:cmd) { { argument => arg_value } }
   let(:result) { "#{argument.camelize(:lower)}=#{arg_value} " }
 
-  it { expect(command.instance_variable_get(:@command)[0]).to eql(result) }
+  it do
+    expect(command.instance_variable_get(:@command)[0] + ' ').to eql(result)
+  end
 end
