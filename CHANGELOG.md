@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add log information
 - Test string argument to command sending it's correct
 - Complete test for command classes
+- Add command setLogLevel
 
 ## [0.2.0] - 2017-05-26
 ### [Fixed]
