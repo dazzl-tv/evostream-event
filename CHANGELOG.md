@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.1] - 2017-08-09
+### [Added]
+- Basic information for configuration to this gem
+- Add log information
+
 ## [0.2.0] - 2017-05-26
 ### [Fixed]
 - Change concat string for encode64

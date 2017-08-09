@@ -23,6 +23,7 @@ module Evostream
     def execute_klass(klass)
       name_flux = extract_name_flux
       Evostream.logger "Name Flux : #{name_flux}"
+      Evostream.logger "Event : #{klass}"
       case [klass]
       when [Evostream::Events::OutStreamCreated]
         klass.new(name_flux, @payload).execute

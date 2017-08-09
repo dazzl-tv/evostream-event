@@ -32,6 +32,36 @@ Or install it yourself as :
 gem install evostream-event
 ```
 
+### Environment
+
+This gem use a configuration file for configure access to EvoStream server.
+
+See initializer file.
+```ruby
+# URL to EvoStream for share video to final user
+config.uri_in       = 'http://server_stream.local:80'
+
+# URL to EvoStream for sending request to this API
+config.uri_out      = 'http://server_stream.local:7777'
+
+# Prefix to folder created for each video mangaed by EvoStream
+config.name         = 'srteamming_'
+
+# Folder for file created by EvoStream
+config.web_root     = '/var/www/html'
+
+# Name to model manipulate
+config.model        = ModelUsedInDatabase
+
+# Choose id to document manipulate in Database
+config.model_id     = :identifier_used_in_model
+
+# Use environment for this gem. Choose between :
+# - development   : Write in log and Send request to evoStream
+# - test          : Write in Log
+# - production    : Send request to EvoStream
+config.environement = :test
+```
 ### Usage
 
 Create initializer :

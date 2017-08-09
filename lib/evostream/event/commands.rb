@@ -14,6 +14,10 @@ module Evostream
         end
       end
 
+      def cmd
+        Evostream.logger "Command before encode : #{@command}"
+      end
+
       private
 
       # Encode commands in base 64 with space between each command
