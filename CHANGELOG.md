@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### [Added]
 - Basic information for configuration to this gem
 - Add log information
+- Test string argument to command sending it's correct
+- Complete test for command classes
 
 ## [0.2.0] - 2017-05-26
 ### [Fixed]
