@@ -31,7 +31,7 @@ module Evostream
     # - development   : Write in log and Send request to evoStream
     # - test          : Write in Log
     # - production    : Send request to EvoStream
-    config.environement = :test
+    config.environment  = :test
   end
       INIT
 
