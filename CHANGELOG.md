@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### [Fixed]
 - Fix model to configuration generator
 
+### [Added]
+- Add method for listing all command in this gem
+
 ## [0.3.1] - 2017-08-09
 ### [Added]
 - Basic information for configuration to this gem

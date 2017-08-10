@@ -18,6 +18,10 @@ module Evostream
         Evostream.logger "Command before encode : #{@command}"
       end
 
+      def self.descendants
+        ObjectSpace.each_object(Class).select { |klass| klass < self }
+      end
+
       private
 
       # Encode commands in base 64 with space between each command
