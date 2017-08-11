@@ -10,6 +10,7 @@ module Evostream
       end
 
       def cmd
+        super
         "removeConfig?params=#{encode_64}"
       end
 

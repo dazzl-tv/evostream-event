@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.3.2] - 2017-08-10
+### [Added]
+- Add log information when command is sending to evostream
+
 ### [Fixed]
 - Fix model to configuration generator
 
