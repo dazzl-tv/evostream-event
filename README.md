@@ -77,6 +77,9 @@ event = Evostream::Event.new(params[:type], params[:payload].to_unsafe_h)
 event.execute_action
 ```
 
+### Usage in cli
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run

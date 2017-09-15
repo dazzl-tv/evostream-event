@@ -1,0 +1,14 @@
+Usage :
+  evostream [options] [command]
+
+Example :
+  ### List to configuration in evostream
+  % evostream listConfig
+
+  -h, --help        Display this help.
+
+  -c, --commands    Display list command managed by this software.
+
+  -s, --server      Evostream URL (http://1.2.3.4:7777)
+
+  -e, --environment Type of environment to send command (default :production).
