@@ -10,6 +10,8 @@ require 'yaml'
 $LOAD_PATH.unshift("#{__dir__}/../")
 require 'event'
 
+# :reek:TooManyStatements
+
 module Evostream
   # Execute CLI with this gem
   class Runner
@@ -57,10 +59,11 @@ module Evostream
       raise CodeError::Evostream::ConnectionFailed
     end
 
+    # :reek:FeatureEnvy
     def test_server_started
       uri = URI.parse(Evostream::Service.uri_in)
-      s = TCPSocket.new(uri.host, uri.port)
-      s.close
+      socket = TCPSocket.new(uri.host, uri.port)
+      socket.close
     rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH
       raise CodeError::Evostream::ConnectionFailed
     end

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# :reek:InstanceVariableAssumption
+
 module Evostream
   module CLI
     # Class for parsing option used in CLI software

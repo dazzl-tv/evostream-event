@@ -34,7 +34,7 @@ describe Evostream::Commands::Create do
   end
 
   context 'playlist_type' do
-    let(:arg_value) { %w(appending rolling).sample }
+    let(:arg_value) { %w[appending rolling].sample }
     let(:argument) { 'playlist_type' }
 
     include_examples 'command'
