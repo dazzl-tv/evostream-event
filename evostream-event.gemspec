@@ -25,9 +25,10 @@ Gem::Specification.new do |spec|
   spec.files         = ['Gemfile', 'LICENSE', 'Rakefile', 'README.md']
   spec.files         += Dir['lib/**/*']
   spec.files         += Dir['spec/**/*']
+  spec.files         += Dir['bin/evostream']
 
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = 'bin'
+  spec.executables   = ['evostream']
 
   spec.require_paths = ['lib']
 
