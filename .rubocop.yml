@@ -14,4 +14,4 @@ Metrics/BlockLength:
     - 'evostream-event.gemspec'
 
 Security/YAMLLoad:
-  Enable: false
+  Enabled: false
