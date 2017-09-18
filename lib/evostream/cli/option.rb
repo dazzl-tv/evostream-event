@@ -2,17 +2,19 @@
 
 module Evostream
   module CLI
+    # Class for parsing option used in CLI software
     class Options
-      CASE_HELP =     ['-h', '--help']
-      CASE_CMD =      ['-c', '--commands']
-      CASE_SERVER =   ['-s', '--server']
-      CASE_ENV =      ['-e', '--environment']
+      CASE_HELP =     ['-h', '--help'].freeze
+      CASE_CMD =      ['-c', '--commands'].freeze
+      CASE_SERVER =   ['-s', '--server'].freeze
+      CASE_ENV =      ['-e', '--environment'].freeze
 
       def initialize
         @file = File.read(File.join(__dir__, 'help'))
       end
 
       # Parse options and execute action if necessary
+      # rubocop:disable Style/EmptyCaseCondition
       def parse(argv)
         @command_line_args = argv
         case
@@ -21,6 +23,7 @@ module Evostream
         when @command_line_args.empty? then   display_no_command
         end
       end
+      # rubocop:enable Style/EmptyCaseCondition
 
       private
 
@@ -30,6 +33,7 @@ module Evostream
 
       def display_help
         puts @file
+        raise CodeError::Finished
       end
 
       def display_command
@@ -37,11 +41,12 @@ module Evostream
         Evostream::Commands::Command.descendants.each do |cmd|
           puts "  - #{cmd.to_s.split('::').last}"
         end
+        raise CodeError::Finished
       end
 
       def display_no_command
-        puts 'No command executed !!'.red
         display_help
+        raise CodeError::Syntax::OptionInvalid
       end
     end
   end

@@ -1,10 +1,11 @@
 Usage :
-  evostream [options] [command]
+  evostream [options] [command] [data]
 
 Example :
   ### List to configuration in evostream
   % evostream listConfig
 
+Options :
   -h, --help        Display this help.
 
   -c, --commands    Display list command managed by this software.

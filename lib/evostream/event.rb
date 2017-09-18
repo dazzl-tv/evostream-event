@@ -5,7 +5,7 @@ require 'evostream/event/info'
 require 'evostream/event/service'
 require 'evostream/event/commands'
 require 'evostream/event/event'
-require 'evostream/event/action'
+require 'evostream/action/action'
 require 'evostream/event/response/response'
 require 'net/http'
 require 'evostream/event/response/mock'
@@ -13,7 +13,8 @@ require 'evostream/event/response/mock'
 # Primary command to gem
 module Evostream
   def self.send_command(cmd)
-    Evostream.logger "CMD : #{cmd}"
+    # Evostream.logger "CMD : #{cmd}"
+    puts 'Prepare message ...'
     Evostream::Responses.new(prepare_request(cmd)).message
   end
 
