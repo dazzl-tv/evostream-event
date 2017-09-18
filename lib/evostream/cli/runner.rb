@@ -2,6 +2,7 @@
 
 require 'colorize'
 require 'option'
+require 'config'
 require 'timeout'
 require 'socket'
 require 'code_error'
@@ -25,13 +26,12 @@ module Evostream
         ##################################
       INFO
       puts txt.red
-      @options = {}
-      prepare_configuration
+      @config = CLI::Config.new
+      @options = CLI::Options.new(@config)
     end
 
     # rubocop:disable Metrics/MethodLength
     def run(args = ARGV)
-      @options = CLI::Options.new
       @options.parse(args)
 
       access_evostream?
@@ -61,21 +61,11 @@ module Evostream
 
     # :reek:FeatureEnvy
     def test_server_started
-      uri = URI.parse(Evostream::Service.uri_in)
+      uri = URI.parse(Evostream::Service.uri_in.to_s)
       socket = TCPSocket.new(uri.host, uri.port)
       socket.close
     rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH
       raise CodeError::Evostream::ConnectionFailed
-    end
-
-    def prepare_configuration
-      Evostream::Service.uri_in       = 'http://192.168.203.122:7777'
-      Evostream::Service.uri_out      = 'http://192.168.203.122:80'
-      Evostream::Service.name         = 'dazzl_'
-      Evostream::Service.web_root     = '/var/www/html'
-      Evostream::Service.model        = 'Channel'
-      Evostream::Service.model_id     = '_id'
-      Evostream::Service.environment  = :production
     end
 
     def execute_runner(cmd)

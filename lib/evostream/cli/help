@@ -10,6 +10,13 @@ Options :
 
   -c, --commands    Display list command managed by this software.
 
-  -s, --server      Evostream URL (http://1.2.3.4:7777)
+  --server          Evostream URL.
+                    default : localhost
 
-  -e, --environment Type of environment to send command (default :production).
+  --port            Evostream PORT.
+                    default : 7777
+
+  -s, --search      Search a node in result to request.
+
+  --config          Use customize file configuration
+                    default : ~/.evostream-configuration.yml
