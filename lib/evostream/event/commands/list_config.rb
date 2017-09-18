@@ -12,6 +12,8 @@ module Evostream
     #
     # This function has no parameters.
     class ListConfig < Command
+      MANDATORY = [].freeze
+
       def initialize(commands = {})
         super(commands)
       end

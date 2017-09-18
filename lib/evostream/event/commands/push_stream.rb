@@ -6,6 +6,8 @@ module Evostream
     # pushed stream can only use the RTMP, RTSP or MPEG-TS unicast/multicast
     # protocol.
     class PushStream < Command
+      MANDATORY = %w[uri].freeze
+
       def initialize(commands = {})
         super(commands)
       end

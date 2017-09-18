@@ -4,6 +4,8 @@ module Evostream
   module Commands
     # Returns a detailed set of information about a stream.
     class SetLogLevel < Command
+      MANDATORY = %w[level].freeze
+
       def initialize(commands = {})
         super(commands)
       end
