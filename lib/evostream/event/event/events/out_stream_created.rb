@@ -50,7 +50,7 @@ module Evostream
         if @request.key?(:hlsSettings)
           :hlsSettings
         elsif @request.key?(:dashSettings)
-           :dashSettings
+          :dashSettings
         elsif @request.key?(:pushSettings)
           :pushSettings
         end
