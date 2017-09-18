@@ -15,7 +15,10 @@ module Evostream
       CASE_SEARCH =   ['-s', '--search'].freeze
       CASE_CONFIG =   ['--config'].freeze
 
+      attr_reader :search
+
       def initialize(configuration)
+        @search = nil
         @file = File.read(File.join(__dir__, 'help'))
         @config = configuration
       end
@@ -69,7 +72,11 @@ module Evostream
         @config.change_port(parameter('--port'))
       end
 
-      def search_in_response; end
+      def search_in_response
+        CASE_SEARCH.each do |search|
+          @search = parameter(search) if args_has_present?(search)
+        end
+      end
 
       def use_config_file
         file = File.join(parameter('--config'))
@@ -84,6 +91,10 @@ module Evostream
       def parameter(search_case)
         param = @command_line_args.find_index(search_case)
         @command_line_args[param + 1]
+      end
+
+      def args_has_present?(ind)
+        @command_line_args.find_index(ind)
       end
     end
   end

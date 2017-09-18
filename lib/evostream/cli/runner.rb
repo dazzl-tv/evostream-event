@@ -3,10 +3,12 @@
 require 'colorize'
 require 'option'
 require 'config'
+require 'search'
 require 'timeout'
 require 'socket'
 require 'code_error'
 require 'yaml'
+require 'yaml/dbm'
 
 $LOAD_PATH.unshift("#{__dir__}/../")
 require 'event'
@@ -76,7 +78,11 @@ module Evostream
     end
 
     def interpret_response(result)
-      puts "Result : #{result.to_yaml}"
+      if @options.search.nil?
+        puts result.to_yaml
+      else
+        CLI::Search.new(@options.search).search_node(result)
+      end
       raise CodeError::Finished
     end
 

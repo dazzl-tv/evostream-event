@@ -13,8 +13,7 @@ require 'evostream/event/response/mock'
 # Primary command to gem
 module Evostream
   def self.send_command(cmd)
-    # Evostream.logger "CMD : #{cmd}"
-    puts 'Prepare message ...'
+    Evostream.logger "CMD : #{cmd}"
     Evostream::Responses.new(prepare_request(cmd)).message
   end
 
