@@ -3,11 +3,10 @@
 require 'spec_helper'
 
 describe Evostream::Commands::ListStreams do
-  let(:command) { Evostream::Commands::ListStreams.new(cmd) }
+  let(:command) { Evostream::Commands::ListStreams }
 
   context 'disable_internal_streams' do
-    let(:arg_value) { Faker::Boolean.boolean }
-    let(:argument) { 'disable_internal_streams' }
+    let(:cmd) { { disable_internal_streams: Faker::Boolean.boolean.to_s } }
 
     include_examples 'command'
   end

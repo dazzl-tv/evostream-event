@@ -4,7 +4,7 @@ module Evostream
   module Commands
     # Create flux DASH
     class CreateDASH < Create
-      MANDATORY = %w[local_stream_names target_folder].freeze
+      MANDATORY = %w[localStreamNames targetFolder].freeze
 
       # Call default command for create DASH Stream
       def initialize(commands = {
