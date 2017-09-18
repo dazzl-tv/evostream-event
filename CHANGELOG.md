@@ -5,17 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.0] - 2017-09-18
+### [Added]
+- Add mandatory element for each command
+- Add usage to CLI
+
+### [Fixed]
+- Fix spec with mandatory parameter
+
 
 ## [0.3.2] - 2017-08-10
 ### [Added]
 - Add log information when command is sending to evostream
 - Add pushSettings key for ouStreamCreated event
+- Add method for listing all command in this gem
 
 ### [Fixed]
 - Fix model to configuration generator
-
-### [Added]
-- Add method for listing all command in this gem
 
 ## [0.3.1] - 2017-08-09
 ### [Added]

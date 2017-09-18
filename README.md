@@ -79,6 +79,27 @@ event.execute_action
 
 ### Usage in cli
 
+Use this gem in CLI. For more explain use helper :
+
+```linux
+evostream -h
+```
+
+Example for delete a configuration :
+
+```linux
+evostream removeConfig 'id: 565'
+```
+
+Example for list configuration :
+
+```linux
+# All configuration
+evostream listConfig
+
+# Just configuration number 42
+evostream -s 'configId: 42' listConfig
+```
 
 ## Development
 
