@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# :reek:Nilcheck
+# :reek:NilCheck
 
 module Evostream
   module CLI
