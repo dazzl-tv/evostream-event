@@ -12,8 +12,10 @@ module Evostream
         private
 
         def action
-          file = File.join(parameter('--config'))
-          CLI::Config.instance.load_custom_file(file)
+          path = parameter('--config')
+          CLI::Config.instance.load_custom_file(File.join(path))
+        rescue
+          raise CodeError::Syntax::OptionInvalid
         end
       end
     end

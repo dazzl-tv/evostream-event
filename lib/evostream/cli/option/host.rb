@@ -12,7 +12,10 @@ module Evostream
         private
 
         def action
-          CLI::Config.instance.change_host(parameter('--server'))
+          param = parameter('--server')
+          CLI::Config.instance.change_host(param)
+        rescue
+          raise CodeError::Syntax::OptionInvalid
         end
       end
     end
