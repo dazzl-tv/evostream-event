@@ -2,16 +2,20 @@
 
 AllCops:
   Exclude:
-    - 'bin/**/*'
-  TargetRubyVersion: 2.3
+    - bin/**/*
+  TargetRubyVersion: 2.4
 
 Metrics/LineLength:
   Max: 80
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*'
-    - 'evostream-event.gemspec'
+    - spec/**/*
+    - evostream-event.gemspec
+
+Metrics/LineLength:
+  Exclude:
+    - spec/**/*
 
 Security/YAMLLoad:
   Enabled: false
