@@ -16,6 +16,9 @@ Dir['spec/support/**/*.rb'].each do |f|
   require File.expand_path(f)
 end
 
+# Load custom matchers
+Dir['spec/matchers/*.rb'].each { |f| require File.expand_path(f) }
+
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect

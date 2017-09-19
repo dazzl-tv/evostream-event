@@ -2,13 +2,13 @@
 
 require 'spec_helper'
 
-describe Evostream::CLI::Argument::Command do
+describe Evostream::CLI::Argument::Version do
   let(:runner) { Evostream::Runner.new }
-  let(:out) { /Commands :\n^  - .*/ }
+  let(:out) { /##################################\n^# Ruby --.*\n^# Evostream::Event -- .*\n##################################/m }
   let(:code) { 0 }
 
   context 'when short argument' do
-    before { ARGV.push('-c') }
+    before { ARGV.push('-v') }
     after { ARGV.pop }
 
     include_examples 'argument exit'
@@ -16,7 +16,7 @@ describe Evostream::CLI::Argument::Command do
   end
 
   context 'when long argument' do
-    before { ARGV.push('--commands') }
+    before { ARGV.push('--version') }
     after { ARGV.pop }
 
     include_examples 'argument exit'
