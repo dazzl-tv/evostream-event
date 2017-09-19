@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'active_support'
+require 'evostream/action/action'
+require 'evostream/cli/runner'
 require 'evostream/event'
 require 'faker'
 require 'json'

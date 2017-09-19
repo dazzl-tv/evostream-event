@@ -12,9 +12,9 @@ module Evostream
         private
 
         def action
-          puts 'Commands :'
+          $stdout.puts 'Commands :'
           Evostream::Commands::Command.descendants.each do |cmd|
-            puts "  - #{cmd.to_s.split('::').last}"
+            $stdout.puts "  - #{cmd.to_s.split('::').last}"
           end
           super
         end

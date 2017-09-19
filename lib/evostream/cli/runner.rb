@@ -2,14 +2,16 @@
 
 require 'singleton'
 require 'colorize'
+require 'timeout'
+require 'socket'
+require 'yaml'
+require 'yaml/dbm'
+
+$LOAD_PATH.unshift(__dir__)
 require 'option'
 require 'config'
 require 'search'
-require 'timeout'
-require 'socket'
 require 'code_error'
-require 'yaml'
-require 'yaml/dbm'
 
 $LOAD_PATH.unshift("#{__dir__}/../")
 require 'event'
@@ -31,7 +33,7 @@ module Evostream
         # Version #{Evostream::VERSION} \t\t #
         ##################################
       INFO
-      puts txt.red
+      $stdout.puts txt.red
       CLI::Config.instance
       @options = CLI::Options.new
     end
@@ -51,7 +53,7 @@ module Evostream
     rescue CodeError::Syntax::OptionInvalid
       return 100
     rescue Evostream::Commands::Errors::MissingMandatory => error
-      puts error.message.red
+      $stdout.puts error.message.red
       return 50
     rescue CodeError::Finished
       return 0
@@ -86,7 +88,7 @@ module Evostream
 
     def interpret_response(result)
       if CLI::Argument::Search.instance.search.nil?
-        puts result.to_yaml
+        $stdout.puts result.to_yaml
       else
         CLI::Search.new.search_node(result)
       end
