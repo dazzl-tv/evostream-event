@@ -9,16 +9,16 @@ describe Evostream::CLI::Argument::Search do
     before { ARGV.push('--search') }
     after { ARGV.pop }
 
-    context 'when argument with file dont exit' do
-      let(:out) { /No command executed !! No command precise\./ }
-      let(:code) { 100 }
+    context 'when argument with no search data' do
+      let(:out) { /Connection to Evostream REFUSED !!/ }
+      let(:code) { 101 }
 
       include_examples 'argument exit'
       include_examples 'argument output'
     end
 
-    context 'when argument with exit file' do
-      before { ARGV.push('.travis/evostream-configuration.yml') }
+    context 'when argument with search data' do
+      before { ARGV.push('id: 4') }
       after { ARGV.pop }
 
       let(:out) { /Connection to Evostream REFUSED !!/ }
