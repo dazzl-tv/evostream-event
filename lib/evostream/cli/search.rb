@@ -6,11 +6,9 @@ module Evostream
   module CLI
     # Search data in evostream result
     class Search
-      def initialize(yaml_search)
+      def initialize
         @response = nil
-        YAML.load(yaml_search).each do |key, value|
-          @search = [key.to_sym, value]
-        end
+        @search = CLI::Argument::Search.instance.search.split(': ')
       end
 
       def search_node(result)

@@ -116,7 +116,11 @@ module Evostream
     end
 
     def two_last_arg(args)
-      [args.first, args.last]
+      if CLI::Argument::Search.instance.search.nil?
+        [args.first, args.last]
+      else
+        [args.last, args.last]
+      end
     end
   end
 end
