@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'singleton'
 require 'colorize'
 require 'option'
 require 'config'
@@ -31,13 +32,13 @@ module Evostream
         ##################################
       INFO
       puts txt.red
-      @config = CLI::Config.new
-      @options = CLI::Options.new(@config)
+      CLI::Config.instance
+      @options = CLI::Options.new
     end
 
     # rubocop:disable Metrics/MethodLength
     def run(args = ARGV)
-      @options.parse(args)
+      @options.parse
 
       access_evostream?
       execute_runner(two_last_arg(args)) if args.count >= 1
@@ -84,10 +85,10 @@ module Evostream
     end
 
     def interpret_response(result)
-      if @options.search.nil?
+      if CLI::Argument::Search.instance.search.nil?
         puts result.to_yaml
       else
-        CLI::Search.new(@options.search).search_node(result)
+        CLI::Search.new.search_node(result)
       end
       raise CodeError::Finished
     end

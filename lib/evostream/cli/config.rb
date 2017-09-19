@@ -6,6 +6,8 @@ module Evostream
   module CLI
     # Configuration file for CLI
     class Config
+      include Singleton
+
       def initialize
         @options = @uri = nil
         load_file_configuration
