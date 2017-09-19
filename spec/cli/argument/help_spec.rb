@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Evostream::CLI::Argument::Helper do
+describe Evostream::CLI::Argument::Help do
   let(:runner) { Evostream::Runner.new }
   let(:out) do
     file = File.join(__dir__, '..', '..', '..', 'lib', 'evostream', 'cli', 'option', 'help')
