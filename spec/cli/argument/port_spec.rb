@@ -8,7 +8,7 @@ describe Evostream::CLI::Argument::Port do
 
   let(:runner) { Evostream::Runner.new }
 
-  context 'when argument with host dont given' do
+  context 'when argument with port dont given' do
     let(:out) { /Command is invalid !!/ }
     let(:code) { 101 }
 
@@ -16,8 +16,8 @@ describe Evostream::CLI::Argument::Port do
     include_examples 'argument output'
   end
 
-  context 'when argumentw with host given' do
-    before { ARGV.push('5489') }
+  context 'when argumentw with port given' do
+    before { ARGV.push(5489) }
     after { ARGV.pop }
 
     let(:out) { /Connection to Evostream REFUSED !!/ }

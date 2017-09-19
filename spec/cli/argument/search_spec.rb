@@ -11,7 +11,7 @@ describe Evostream::CLI::Argument::Search do
 
     context 'when argument with no search data' do
       let(:out) { /Connection to Evostream REFUSED !!/ }
-      let(:code) { 101 }
+      let(:code) { 201 }
 
       include_examples 'argument exit'
       include_examples 'argument output'

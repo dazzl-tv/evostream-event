@@ -16,8 +16,8 @@ describe Evostream::CLI::Argument::Host do
     include_examples 'argument output'
   end
 
-  context 'when argumentw with host given' do
-    before { ARGV.push('evostream-server.local') }
+  context 'when argument with host given' do
+    before { ARGV.push('127.0.0.1') }
     after { ARGV.pop }
 
     let(:out) { /Connection to Evostream REFUSED !!/ }
