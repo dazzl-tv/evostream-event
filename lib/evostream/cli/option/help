@@ -20,3 +20,5 @@ Options :
 
   --config          Use customize file configuration
                     default : ~/.evostream-configuration.yml
+
+  -v, --version     Display version to Ruby and gem Evostream::Event

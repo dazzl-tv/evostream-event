@@ -27,13 +27,6 @@ module Evostream
     attr_reader :options
 
     def initialize
-      txt = <<~INFO
-        ##################################
-        # Start Evostream CLI \t\t #
-        # Version #{Evostream::VERSION} \t\t #
-        ##################################
-      INFO
-      $stdout.puts txt.red
       CLI::Config.instance
       @options = CLI::Options.new
     end
