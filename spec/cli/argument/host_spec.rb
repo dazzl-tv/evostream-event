@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Evostream::CLI::Argument::Host do
+describe Evostream::CLI::Argument::Host, type: :cli do
   before { ARGV.push('--server') }
   after { ARGV.pop }
 
@@ -16,7 +16,7 @@ describe Evostream::CLI::Argument::Host do
     include_examples 'argument output'
   end
 
-  context 'when argument with host given' do
+  context 'when argument with host given', broken: true do
     before { ARGV.push('127.0.0.1') }
     after { ARGV.pop }
 

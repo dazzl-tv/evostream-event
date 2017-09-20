@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Evostream::CLI::Argument::Port do
+describe Evostream::CLI::Argument::Port, type: :cli do
   before { ARGV.push('--port') }
   after { ARGV.pop }
 
@@ -16,12 +16,12 @@ describe Evostream::CLI::Argument::Port do
     include_examples 'argument output'
   end
 
-  context 'when argumentw with port given' do
+  context 'when argumentw with port given', broken: true do
     before { ARGV.push(5489) }
     after { ARGV.pop }
 
-    let(:out) { /Connection to Evostream REFUSED !!/ }
-    let(:code) { 201 }
+    let(:out) { /No command executed !! No command precise\./ }
+    let(:code) { 100 }
 
     include_examples 'argument exit'
     include_examples 'argument output'

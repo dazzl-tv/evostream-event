@@ -52,6 +52,11 @@ RSpec.configure do |config|
   config.before(:each, type: :response) do
     stub_request(:any, /server_stream.local/).to_rack(FakeEvostream)
   end
+
+  config.before(:each, type: :cli) do
+    server = double('server').as_null_object
+    TCPSocket.stub(:new).and_return(server)
+  end
 end
 
 # Class for testing

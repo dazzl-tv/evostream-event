@@ -17,7 +17,7 @@ describe Evostream::CLI::Argument::Search do
       include_examples 'argument output'
     end
 
-    context 'when argument with search data' do
+    context 'when argument with search data', broken: true do
       before { ARGV.push('id: 4') }
       after { ARGV.pop }
 
@@ -27,10 +27,5 @@ describe Evostream::CLI::Argument::Search do
       include_examples 'argument exit'
       include_examples 'argument output'
     end
-  end
-
-  context 'when long argument' do
-    before { ARGV.push('-s') }
-    after { ARGV.pop }
   end
 end
