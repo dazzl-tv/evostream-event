@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Evostream::CLI::Argument::Search do
+describe Evostream::CLI::Argument::Search, broken: true do
   let(:runner) { Evostream::Runner.new }
 
   context 'when short argument' do
