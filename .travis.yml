@@ -12,8 +12,8 @@ before_install:
 
 script:
   - rake
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then docker-compose run gem rubocop -D; fi
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then docker-compose run gem reek; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then rubocop -D; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then reek; fi
 
 before_deploy:
   - gem install dpl
