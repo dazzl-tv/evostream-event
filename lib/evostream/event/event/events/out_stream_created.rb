@@ -10,7 +10,6 @@ module Evostream
       end
 
       def execute
-        Evostream.logger "Update document (#{model.class}) in Database"
         stream_flux = what_flux.upcase.constantize
         model.streams.push(stream_flux.new(config_id: ex_config, flux: ex_flux))
         model.save
@@ -35,7 +34,7 @@ module Evostream
       end
 
       def name_settings
-        @request["#{what_flux.downcase}Settings"]
+        @request[select_key_setting]
       end
 
       def ex_config
@@ -45,6 +44,16 @@ module Evostream
       def ex_flux
         Evostream::Service.uri_out + '/' + name_settings['groupName'] + '/' +
           @request['name'] + '/' + name_settings[name_flux]
+      end
+
+      def select_key_setting
+        if @request.key?(:hlsSettings)
+          :hlsSettings
+        elsif @request.key?(:dashSettings)
+          :dashSettings
+        elsif @request.key?(:pushSettings)
+          :pushSettings
+        end
       end
     end
   end

@@ -4,11 +4,14 @@ module Evostream
   module Commands
     # Provides a detailed description of all active streams.
     class ListStreams < Command
+      MANDATORY = [].freeze
+
       def initialize(commands = {})
         super(commands)
       end
 
       def cmd
+        super
         "listStreams?params=#{encode_64}"
       end
 

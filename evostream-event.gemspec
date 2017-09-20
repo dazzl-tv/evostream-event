@@ -25,13 +25,16 @@ Gem::Specification.new do |spec|
   spec.files         = ['Gemfile', 'LICENSE', 'Rakefile', 'README.md']
   spec.files         += Dir['lib/**/*']
   spec.files         += Dir['spec/**/*']
+  spec.files         += Dir['bin/evostream']
 
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = 'bin'
+  spec.executables   = ['evostream']
 
   spec.require_paths = ['lib']
 
   spec.post_install_message = Evostream::POST_INSTALL
+
+  spec.required_ruby_version = '>= 2.4.0'
 
   spec.add_development_dependency 'bundler', '~> 1.13'
   spec.add_development_dependency 'rake', '~> 10.0'
@@ -47,5 +50,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 2.3', '>= 2.3.2'
   spec.add_development_dependency 'sinatra', '~> 2.0.0.rc2'
   spec.add_development_dependency 'capybara', '~> 2.13'
-  spec.add_development_dependency 'activesupport', '~> 4.2'
+
+  spec.add_runtime_dependency 'activesupport', '~> 4.2'
+  spec.add_runtime_dependency 'colorize', '~> 0.8.1'
+  spec.add_runtime_dependency 'pry', '~> 0.10.4'
 end

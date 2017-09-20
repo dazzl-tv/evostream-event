@@ -3,11 +3,10 @@
 require 'spec_helper'
 
 describe Evostream::Commands::GetStreamInfo do
-  let(:command) { Evostream::Commands::GetStreamInfo.new(cmd) }
+  let(:command) { Evostream::Commands::GetStreamInfo }
 
   context 'id' do
-    let(:arg_value) { Faker::Number.between(1, 999) }
-    let(:argument) { 'id' }
+    let(:cmd) { { id: Faker::Number.between(1, 999).to_s } }
 
     include_examples 'command'
   end
@@ -16,6 +15,6 @@ describe Evostream::Commands::GetStreamInfo do
     let(:arg_value) { Faker::Pokemon.name }
     let(:argument) { 'local_stream_name' }
 
-    include_examples 'command'
+    include_examples 'command raise'
   end
 end

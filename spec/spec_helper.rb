@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'active_support'
+require 'evostream/action/action'
+require 'evostream/cli/runner'
 require 'evostream/event'
 require 'faker'
 require 'json'
@@ -13,6 +15,9 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 Dir['spec/support/**/*.rb'].each do |f|
   require File.expand_path(f)
 end
+
+# Load custom matchers
+Dir['spec/matchers/*.rb'].each { |f| require File.expand_path(f) }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
@@ -46,6 +51,11 @@ RSpec.configure do |config|
 
   config.before(:each, type: :response) do
     stub_request(:any, /server_stream.local/).to_rack(FakeEvostream)
+  end
+
+  config.before(:each, type: :cli) do
+    server = double('server').as_null_object
+    TCPSocket.stub(:new).and_return(server)
   end
 end
 

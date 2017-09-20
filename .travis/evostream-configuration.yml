@@ -1,0 +1,5 @@
+---
+
+evostream:
+  host: server_stream.local
+  port: 7777

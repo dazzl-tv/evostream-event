@@ -4,12 +4,15 @@ module Evostream
   # Concern all command sending to evoStream
   module Commands
     # Abstract class for create element
-    class Destroy < Command
+    class RemoveConfig < Command
+      MANDATORY = %w[id].freeze
+
       def initialize(commands = { group_name: 'null', remove_hls_hds_files: 1 })
         super(commands)
       end
 
       def cmd
+        super
         "removeConfig?params=#{encode_64}"
       end
 
@@ -39,6 +42,6 @@ module Evostream
     end
 
     # Alias to Destroy class
-    RemoveConfig = Destroy
+    Destroy = RemoveConfig
   end
 end

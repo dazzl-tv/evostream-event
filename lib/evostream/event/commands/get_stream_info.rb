@@ -4,11 +4,14 @@ module Evostream
   module Commands
     # Returns a detailed set of information about a stream.
     class GetStreamInfo < Command
+      MANDATORY = %w[id].freeze
+
       def initialize(commands = {})
         super(commands)
       end
 
       def cmd
+        super
         "getStreamInfo?params=#{encode_64}"
       end
 

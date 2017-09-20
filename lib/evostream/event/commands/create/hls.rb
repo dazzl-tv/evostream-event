@@ -6,6 +6,8 @@ module Evostream
   module Commands
     # Create flux HLS
     class CreateHLS < Create
+      MANDATORY = %w[localStreamNames targetFolder].freeze
+
       # Call default command for create DASH Stream
       def initialize(commands = {
         local_stream_names: 'null', target_folder: 'null'
@@ -14,6 +16,7 @@ module Evostream
       end
 
       def cmd
+        super
         "createHLSStream?params=#{encode_64}"
       end
 

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift("#{__dir__}/../lib/evostream/cli")
+
+require 'bundler/setup'
+require 'active_support/inflector'
+require 'json'
+require 'runner'
+require 'benchmark'
+
+cli = Evostream::Runner.new
+result = 0
+
+time = Benchmark.realtime do
+  result = cli.run
+end
+
+puts "Finished in #{time} seconds" if Evostream::Service.environment.eql?(:development)
+exit result

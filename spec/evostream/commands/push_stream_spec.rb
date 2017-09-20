@@ -3,11 +3,10 @@
 require 'spec_helper'
 
 describe Evostream::Commands::Destroy do
-  let(:command) { Evostream::Commands::PushStream.new(cmd) }
+  let(:command) { Evostream::Commands::PushStream }
 
   context 'uri' do
-    let(:arg_value) { 'rtmp://de.pscp.tv:80/x/31' }
-    let(:argument) { 'uri' }
+    let(:cmd) { { uri: 'rtmp://de.pscp.tv:80/x/31' } }
 
     include_examples 'command'
   end
@@ -16,13 +15,13 @@ describe Evostream::Commands::Destroy do
     let(:arg_value) { Faker::Pokemon.name }
     let(:argument) { 'local_stream_name' }
 
-    include_examples 'command'
+    include_examples 'command raise'
   end
 
   context 'target_stream_name' do
     let(:arg_value) { Faker::Pokemon.name }
     let(:argument) { 'target_stream_name' }
 
-    include_examples 'command'
+    include_examples 'command raise'
   end
 end

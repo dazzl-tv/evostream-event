@@ -1,0 +1,24 @@
+Usage :
+  evostream [options] [command] [data]
+
+Example :
+  ### List to configuration in evostream
+  % evostream listConfig
+
+Options :
+  -h, --help        Display this help.
+
+  -c, --commands    Display list command managed by this software.
+
+  --server          Evostream URL.
+                    default : localhost
+
+  --port            Evostream PORT.
+                    default : 7777
+
+  -s, --search      Search a node in result to request.
+
+  --config          Use customize file configuration
+                    default : ~/.evostream-configuration.yml
+
+  -v, --version     Display version to Ruby and gem Evostream::Event

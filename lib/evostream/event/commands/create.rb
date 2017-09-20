@@ -5,6 +5,8 @@ module Evostream
   module Commands
     # Abstract class for create element
     class Create < Command
+      MANDATORY = %w[localStreamNames targetFolder].freeze
+
       def initialize(commands = {})
         super(commands)
       end
