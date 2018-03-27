@@ -38,18 +38,18 @@ module Evostream
       access_evostream?
       execute_runner(two_last_arg(args)) if args.count >= 1
     rescue CodeError::Evostream::ConnectionFailed
-      return 201
+      201
     rescue CodeError::Evostream::NoResult
-      return 200
+      200
     rescue CodeError::Syntax::CommandInvalid
-      return 101
+      101
     rescue CodeError::Syntax::OptionInvalid
-      return 100
+      100
     rescue Evostream::Commands::Errors::MissingMandatory => error
       $stdout.puts error.message.red
-      return 50
+      50
     rescue CodeError::Finished
-      return 0
+      0
     end
     # rubocop:enable Metrics/MethodLength
 
