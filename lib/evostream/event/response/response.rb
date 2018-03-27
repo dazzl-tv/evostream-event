@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Lint/DuplicateMethods
+
 require 'active_support/hash_with_indifferent_access'
 
 module Evostream
@@ -43,3 +45,4 @@ module Evostream
     end
   end
 end
+# rubocop:enable Lint/DuplicateMethods

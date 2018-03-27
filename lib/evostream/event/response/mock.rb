@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/EvalWithLocation
 module Net
-  # Override Net::hTTPResponse for create response with body
+  # Override Net::HTTPResponse for create response with body
   class HTTPResponse
     def self.mock(body = {})
       # construct
@@ -18,3 +19,4 @@ module Net
     end
   end
 end
+# rubocop:enable Style/EvalWithLocation

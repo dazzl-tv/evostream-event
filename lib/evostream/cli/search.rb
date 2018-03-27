@@ -12,7 +12,7 @@ module Evostream
       end
 
       def search_node(result)
-        YAML.load(result.to_yaml).each do |_key, value|
+        YAML.load(result.to_yaml).each_value do |value|
           inspect_array(value) if value.is_a?(Array) && !value.empty?
         end
 
