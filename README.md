@@ -57,7 +57,7 @@ config.model        = ModelUsedInDatabase
 config.model_id     = :identifier_used_in_model
 
 # Use environment for this gem. Choose between :
-# - development   : Write in log and Send request to evoStream
+# - development   : Write in log and Send request to EvoStream
 # - test          : Write in Log
 # - production    : Send request to EvoStream
 config.environement = :test
