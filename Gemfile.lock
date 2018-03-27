@@ -183,10 +183,10 @@ DEPENDENCIES
   reek (~> 4.2, >= 4.2.4)
   rspec (~> 3.5, >= 3.5.0)
   rubocop (~> 0.48.0)
-  sinatra (~> 2.0.0.rc2)
+  sinatra (~> 2.0.1)
   travis (~> 1.8, >= 1.8.4)
   webmock (~> 2.3, >= 2.3.2)
-  yard (~> 0.9.5)
+  yard (~> 0.9.11)
 
 BUNDLED WITH
    1.16.1
