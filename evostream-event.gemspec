@@ -1,7 +1,7 @@
-# frozen_string_literal: true
 # coding: utf-8
+# frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'evostream/event/info'
@@ -43,7 +43,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'overcommit', '~> 0.34.2'
   spec.add_development_dependency 'pry-byebug', '~> 3.4'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'reek', '~> 4.2', '>= 4.2.4'
+  spec.add_development_dependency 'reek', '~> 4.8'
   spec.add_development_dependency 'rspec', '~> 3.5', '>= 3.5.0'
   spec.add_development_dependency 'rubocop', '~> 0.54.0'
   spec.add_development_dependency 'sinatra', '~> 2.0.1'
