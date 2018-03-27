@@ -46,10 +46,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'reek', '~> 4.2', '>= 4.2.4'
   spec.add_development_dependency 'rspec', '~> 3.5', '>= 3.5.0'
   spec.add_development_dependency 'rubocop', '~> 0.48.0'
-  spec.add_development_dependency 'sinatra', '~> 2.0.0.rc2'
+  spec.add_development_dependency 'sinatra', '~> 2.0.1'
   spec.add_development_dependency 'travis', '~> 1.8', '>= 1.8.4'
   spec.add_development_dependency 'webmock', '~> 2.3', '>= 2.3.2'
-  spec.add_development_dependency 'yard', '~> 0.9.5'
+  spec.add_development_dependency 'yard', '~> 0.9.11'
 
   spec.add_runtime_dependency 'activesupport', '~> 4.2'
   spec.add_runtime_dependency 'colorize', '~> 0.8.1'
