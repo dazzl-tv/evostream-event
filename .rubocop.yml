@@ -6,6 +6,7 @@ AllCops:
     - vendor/**/*
   TargetRubyVersion: 2.4
 
+### METRICS ###
 Metrics/LineLength:
   Max: 80
 
@@ -18,5 +19,10 @@ Metrics/LineLength:
   Exclude:
     - spec/**/*
 
+### SECURITY ###
 Security/YAMLLoad:
+  Enabled: false
+
+### STYLES ###
+Style/RescueStandardError:
   Enabled: false
