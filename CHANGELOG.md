@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.2] - 2018-03-27
+###[Fixed]
+- Update gems (security fix)
+- Send action to evostream instance global if uri_in is not precised
+
 ## [1.0.1] - 2017-12-21
 ###[Fixed]
 - Update gem (nokogiri and yard)

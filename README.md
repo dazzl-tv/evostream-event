@@ -1,4 +1,4 @@
-# Evostream::Event | [![Build Status](https://travis-ci.org/Dev-Crea/evostream-event.svg?branch=master)](https://travis-ci.org/Dev-Crea/evostream-event) [![Gem Version](https://badge.fury.io/rb/evostream-event.svg)](https://badge.fury.io/rb/evostream-event) [![inline docs](https://inch-ci.org/github/Dev-Crea/evostream-event.svg)](https://inch-ci.org/github/Dev-Crea/evostream-event)
+# Evostream::Event | [![Build Status](https://travis-ci.org/Dev-Crea/evostream-event.svg?branch=master)](https://travis-ci.org/Dev-Crea/evostream-event) [![Gem Version](https://badge.fury.io/rb/evostream-event.svg)](https://badge.fury.io/rb/evostream-event) [![inline docs](https://inch-ci.org/github/Dev-Crea/evostream-event.svg)](https://inch-ci.org/github/Dev-Crea/evostream-event) [![Maintainability](https://api.codeclimate.com/v1/badges/8fc5d78d80473fd9ae3e/maintainability)](https://codeclimate.com/github/Dev-Crea/cli-evostream/maintainability)
 
 Evostream Event listen event to Evostream and execute task.
 
@@ -57,7 +57,7 @@ config.model        = ModelUsedInDatabase
 config.model_id     = :identifier_used_in_model
 
 # Use environment for this gem. Choose between :
-# - development   : Write in log and Send request to evoStream
+# - development   : Write in log and Send request to EvoStream
 # - test          : Write in Log
 # - production    : Send request to EvoStream
 config.environement = :test

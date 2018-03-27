@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Evostream::Action, type: :request, broken: true do
+describe Evostream::Action, type: :request do
   let(:action) { Evostream::Action.new(payload) }
   let(:payload) { {} }
 
@@ -20,13 +20,29 @@ describe Evostream::Action, type: :request, broken: true do
       }
     end
 
-    include_examples 'test request action'
+    context 'global Evostream variable' do
+      include_examples 'test request action'
+    end
+
+    context 'local Evostream variable' do
+      let(:action) { Evostream::Action.new(payload, 'evostream.dazzl.local') }
+
+      include_examples 'test request action'
+    end
   end
 
   describe 'remove_config' do
     let(:action_name) { 'removeConfig' }
     let(:payload) { { id: Faker::Number.between(1, 999_999) } }
 
-    include_examples 'test request action'
+    context 'global Evostream variable' do
+      include_examples 'test request action'
+    end
+
+    context 'local Evostream variable' do
+      let(:action) { Evostream::Action.new(payload, 'evostream.dazzl.local') }
+
+      include_examples 'test request action'
+    end
   end
 end

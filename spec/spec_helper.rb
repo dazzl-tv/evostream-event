@@ -33,12 +33,13 @@ RSpec.configure do |config|
   # Configure Service DSL
   config.before do
     Evostream::Service.configuration do |c|
-      c.uri_in     = 'http://server_stream.local:80'
-      c.uri_out    = 'http://server_stream.local:7777'
-      c.name       = 'srteamming_'
-      c.web_root   = '/var/www/html'
-      c.model      = Test
-      c.model_id   = :identifier_used_in_model
+      c.uri_in      = 'http://server_stream.local:80'
+      c.uri_out     = 'http://server_stream.local:7777'
+      c.name        = 'srteamming_'
+      c.web_root    = '/var/www/html'
+      c.model       = Test
+      c.model_id    = :identifier_used_in_model
+      c.environment = :test
     end
   end
 
