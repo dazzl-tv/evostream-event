@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# :reek:NilCheck
+
 module Evostream
   # Send an action to evostream server
   class Action
@@ -15,12 +17,9 @@ module Evostream
       klass = get_class(cmd)
 
       Evostream.logger "Execute action with cmd : #{klass}"
-      if @uri_in.nil?
-        Evostream.send_command(klass.new(@payload).cmd)
-      else
-        Evostream.logger "to Evostream instance : #{@uri_in}"
-        Evostream.send_command(klass.new(@payload).cmd, @uri_in)
-      end
+      Evostream.logger "to Evostream instance : #{@uri_in}" if @uri_in.nil?
+
+      Evostream.send_command(get_cmd(klass), @uri_in)
     end
 
     private
@@ -31,6 +30,10 @@ module Evostream
       message = "Command [#{cmd}] dosen't exist."
       puts message
       Evostream.logger message
+    end
+
+    def get_cmd(klass)
+      klass.new(@payload).cmd
     end
   end
 end

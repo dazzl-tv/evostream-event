@@ -10,6 +10,8 @@ require 'evostream/event/response/response'
 require 'net/http'
 require 'evostream/event/response/mock'
 
+# :reek:NilCheck
+
 # Primary command to gem
 module Evostream
   def self.send_command(cmd, uri_in = nil)
@@ -29,9 +31,13 @@ module Evostream
     when :test
       Evostream.request_test(cmd)
     when :development, :production
-      url = uri_in.nil? ? Evostream::Service.uri_in : uri_in
-      Evostream.request_real(URI.parse("#{url}/#{cmd}"))
+      prepare_request_real(uri_in.nil? ? Evostream::Service.uri_in : uri_in,
+                           cmd)
     end
+  end
+
+  def self.prepare_request_real(url, cmd)
+    Evostream.request_real(URI.parse("#{url}/#{cmd}"))
   end
 
   class << self
