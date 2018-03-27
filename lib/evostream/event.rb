@@ -12,9 +12,9 @@ require 'evostream/event/response/mock'
 
 # Primary command to gem
 module Evostream
-  def self.send_command(cmd)
+  def self.send_command(cmd, uri_in = nil)
     Evostream.logger "CMD : #{cmd}"
-    Evostream::Responses.new(prepare_request(cmd)).message
+    Evostream::Responses.new(prepare_request(cmd, uri_in)).message
   end
 
   def self.logger(message)
@@ -22,14 +22,15 @@ module Evostream
       if Evostream::Service.environment.eql?('development') && defined?(Rails)
   end
 
-  def self.prepare_request(cmd)
+  def self.prepare_request(cmd, uri_in = nil)
     env = Evostream::Service.environment.to_sym
     Evostream.logger "ENV  ------> #{env}"
     case env
     when :test
       Evostream.request_test(cmd)
     when :development, :production
-      Evostream.request_real(URI.parse("#{Evostream::Service.uri_in}/#{cmd}"))
+      url = uri_in.nil? ? Evostream::Service.uri_in : uri_in
+      Evostream.request_real(URI.parse("#{url}/#{cmd}"))
     end
   end
 

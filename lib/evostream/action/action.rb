@@ -3,8 +3,11 @@
 module Evostream
   # Send an action to evostream server
   class Action
-    def initialize(payload = {})
+    @uri_in = nil
+
+    def initialize(payload = {}, uri_in = nil)
       @payload = payload
+      @uri_in = uri_in
     end
 
     def execute_action(command_name)
@@ -12,7 +15,12 @@ module Evostream
       klass = get_class(cmd)
 
       Evostream.logger "Execute action with cmd : #{klass}"
-      Evostream.send_command(klass.new(@payload).cmd)
+      if @uri_in.nil?
+        Evostream.send_command(klass.new(@payload).cmd)
+      else
+        Evostream.logger "to Evostream instance : #{@uri_in}"
+        Evostream.send_command(klass.new(@payload).cmd, @uri_in)
+      end
     end
 
     private
