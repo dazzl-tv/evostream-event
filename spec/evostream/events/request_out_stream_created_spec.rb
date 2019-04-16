@@ -44,9 +44,9 @@ describe Evostream::Events::OutStreamCreated do
             hlsResume: false,
             hlsVersion: 3,
             keepAlive: true,
-            localStreamName: Faker::GameOfThrones.house,
+            localStreamName: Faker::TvShows::GameOfThrones.house,
             masterPlaylistPath: Faker::File.file_name(Faker::Lorem.word,
-                                                      Faker::GameOfThrones.city,
+                                                      Faker::TvShows::GameOfThrones.city,
                                                       Faker::Color.color_name),
             maxChunkLength: 0,
             offsetTime: 0,
@@ -58,14 +58,14 @@ describe Evostream::Events::OutStreamCreated do
             staleRetentionCount: 5,
             startOffset: 0,
             targetFolder: Faker::File.file_name(Faker::Lorem.word,
-                                                Faker::GameOfThrones.city,
+                                                Faker::TvShows::GameOfThrones.city,
                                                 Faker::Color.color_name),
             timestamp: Faker::Number.decimal(1),
             useByteRange: false,
             useSystemTime: false
           },
           ip: Faker::Internet.ip_v4_address,
-          name: "#{Faker::Zelda.character}_#{Faker::Number.between(1, 999)}",
+          name: "#{Faker::Games::Zelda.character}_#{Faker::Number.between(1, 999)}",
           nearIp: Faker::Internet.ip_v4_address,
           nearPort: Faker::Number.between(1, 65_536),
           outStreamsUniqueIds: nil,
@@ -107,8 +107,8 @@ describe Evostream::Events::OutStreamCreated do
 
     context 'payload isn\'t correct' do
       let(:body) { Faker::Lorem.paragraph }
-      let(:type) { Faker::Zelda.character }
-      let(:payload) { Faker::Zelda.game }
+      let(:type) { Faker::Games::Zelda.character }
+      let(:payload) { Faker::Games::Zelda.game }
 
       include_examples 'payload isn\'t correct'
     end
@@ -146,7 +146,7 @@ describe Evostream::Events::OutStreamCreated do
             groupName: Faker::Lorem.word,
             groupTargetFolder: Faker::File.file_name(Faker::Lorem.word),
             keepAlive: true,
-            localStreamName: Faker::GameOfThrones.house,
+            localStreamName: Faker::TvShows::GameOfThrones.house,
             manifestName: "#{Faker::Lorem.word}.#{Faker::Lorem.word}",
             operationType: 6,
             overwriteDestination: true,
@@ -154,11 +154,11 @@ describe Evostream::Events::OutStreamCreated do
             playlistType: %w[rolling appending].sample,
             staleRetentionCount: 5,
             targetFolder: Faker::File.file_name(Faker::Lorem.word,
-                                                Faker::GameOfThrones.city,
+                                                Faker::TvShows::GameOfThrones.city,
                                                 Faker::Color.color_name)
           },
           ip: Faker::Internet.ip_v4_address,
-          name: "#{Faker::Zelda.character}_#{Faker::Number.between(1, 999)}",
+          name: "#{Faker::Games::Zelda.character}_#{Faker::Number.between(1, 999)}",
           nearIp: Faker::Internet.ip_v4_address,
           nearPort: Faker::Number.between(1, 65_536),
           outStreamsUniqueIds: nil,
@@ -200,8 +200,8 @@ describe Evostream::Events::OutStreamCreated do
 
     context 'payload isn\'t correct' do
       let(:body) { Faker::Lorem.paragraph }
-      let(:type) { Faker::Zelda.character }
-      let(:payload) { Faker::Zelda.game }
+      let(:type) { Faker::Games::Zelda.character }
+      let(:payload) { Faker::Games::Zelda.game }
 
       include_examples 'payload isn\'t correct'
     end

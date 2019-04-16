@@ -74,8 +74,8 @@ describe Evostream::Events::InStreamClosed, type: :request do
 
   context 'payload isn\'t correct' do
     let(:body) { Faker::Lorem.paragraph }
-    let(:type) { Faker::Zelda.character }
-    let(:payload) { Faker::Zelda.game }
+    let(:type) { Faker::Games::Zelda.character }
+    let(:payload) { Faker::Games::Zelda.game }
 
     include_examples 'payload isn\'t correct'
   end

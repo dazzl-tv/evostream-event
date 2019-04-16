@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ###[Fixed]
 - Remove useless dependency to pry and bundler
 - Fix require rspec for rakefile
+- Fix spec deprecated Faker
 
 ## [1.0.2] - 2018-03-27
 ###[Fixed]

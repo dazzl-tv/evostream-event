@@ -13,7 +13,7 @@ describe Evostream::Commands::CreateHLS do
   end
 
   context 'playlist_name' do
-    let(:arg_value) { Faker::Pokemon.name }
+    let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'playlist_name' }
 
     include_examples 'command raise'
@@ -27,14 +27,14 @@ describe Evostream::Commands::CreateHLS do
   end
 
   context 'chunk_base_name' do
-    let(:arg_value) { Faker::Pokemon.name }
+    let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'chunk_base_name' }
 
     include_examples 'command raise'
   end
 
   context 'drm_type' do
-    let(:arg_value) { Faker::Pokemon.name }
+    let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'drm_type' }
 
     include_examples 'command raise'
@@ -106,7 +106,7 @@ describe Evostream::Commands::CreateHLS do
   context 'with mandatory argument(s)' do
     let(:cmd) do
       {
-        local_stream_names: Faker::Pokemon.name,
+        local_stream_names: Faker::Games::Pokemon.name,
         target_folder: Faker::File.file_name('/path/to')
       }
     end
