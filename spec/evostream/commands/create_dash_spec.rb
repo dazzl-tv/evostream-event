@@ -6,7 +6,7 @@ describe Evostream::Commands::CreateDASH do
   let(:command) { Evostream::Commands::CreateDASH }
 
   context 'manifest_name' do
-    let(:arg_value) { Faker::Pokemon.name }
+    let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'manifest_name' }
 
     include_examples 'command raise'
@@ -15,7 +15,7 @@ describe Evostream::Commands::CreateDASH do
   context 'with mandatory argument(s)' do
     let(:cmd) do
       {
-        local_stream_names: Faker::Pokemon.name,
+        local_stream_names: Faker::Games::Pokemon.name,
         target_folder: Faker::File.file_name('/path/to')
       }
     end

@@ -45,8 +45,8 @@ module Evostream
       101
     rescue CodeError::Syntax::OptionInvalid
       100
-    rescue Evostream::Commands::Errors::MissingMandatory => error
-      $stdout.puts error.message.red
+    rescue Evostream::Commands::Errors::MissingMandatory => e
+      $stdout.puts e.message.red
       50
     rescue CodeError::Finished
       0

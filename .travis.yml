@@ -1,23 +1,38 @@
 sudo: false
-
+dist: trusty
+group: deprecated-2017Q4
 language: ruby
+cache:
+  bundler: true
+  directories:
+    - /home/travis/.rvm
+    - /usr/local/bundle
 
 rvm:
-  - 2.4.0
-  - 2.4.1
-  - 2.4.2
-  - 2.4.3
+  - 2.6.2
+  - 2.6.1
+  - 2.6.0
+  - 2.5.3
+  - 2.5.2
+  - 2.5.1
   - 2.5.0
+  - 2.4.5
+  - 2.4.4
+  - 2.4.3
+  - 2.4.2
+  - 2.4.1
+  - 2.4.0
 
 before_install:
-  - bundle update
+  - gem install bundler
   - gem update --system
   - cp .travis/evostream-configuration.yml ~/.evostream-configuration.yml
+  - rm Gemfile.lock
 
 script:
-  - rake
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then rubocop -D; fi
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then reek; fi
+  - bundle exec rake spec
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then bundle exec rubocop -D; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then bundle exec reek; fi
 
 before_deploy:
   - gem install dpl

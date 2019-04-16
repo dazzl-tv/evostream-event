@@ -12,14 +12,14 @@ describe Evostream::Commands::Destroy do
   end
 
   context 'local_stream_name' do
-    let(:arg_value) { Faker::Pokemon.name }
+    let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'local_stream_name' }
 
     include_examples 'command raise'
   end
 
   context 'target_stream_name' do
-    let(:arg_value) { Faker::Pokemon.name }
+    let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'target_stream_name' }
 
     include_examples 'command raise'

@@ -24,7 +24,7 @@ describe Evostream::Events::InStreamCreated, type: :request do
         farIp: Faker::Internet.ip_v4_address,
         farPort: Faker::Number.between(1, 65_536),
         ip: Faker::Internet.ip_v4_address,
-        name: "#{Faker::Zelda.character}_#{Faker::Number.between(1, 999)}",
+        name: "#{Faker::Games::Zelda.character}_#{Faker::Number.between(1, 999)}",
         nearIp: Faker::Internet.ip_v4_address,
         nearPort: Faker::Number.between(1, 65_536),
         outStreamsUniqueIds: nil,
@@ -67,8 +67,8 @@ describe Evostream::Events::InStreamCreated, type: :request do
 
   context 'payload isn\'t correct' do
     let(:body) { Faker::Lorem.paragraph }
-    let(:type) { Faker::Zelda.character }
-    let(:payload) { Faker::Zelda.game }
+    let(:type) { Faker::Games::Zelda.character }
+    let(:payload) { Faker::Games::Zelda.game }
 
     include_examples 'payload isn\'t correct'
   end

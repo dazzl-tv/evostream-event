@@ -19,7 +19,7 @@ describe Evostream::Commands::Destroy do
   end
 
   context 'group_name' do
-    let(:arg_value) { Faker::Pokemon.name }
+    let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'group_name' }
 
     include_examples 'command raise'

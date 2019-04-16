@@ -6,7 +6,7 @@
 # Define constant to gem.
 module Evostream
   # Define version to gem
-  VERSION = '1.0.2'
+  VERSION = '1.0.3'
 
   # Name to gem
   GEM_NAME = 'evostream-event'
@@ -26,7 +26,7 @@ module Evostream
   # Define a long description to gem
   DESCRIPTION = <<-DESC
   Manipulate event evostream and send actions to evostream server.
-    DESC
+  DESC
 
   # Define homepage
   HOMEPAGE = 'https://github.com/Dev-Crea/evostream-event'
