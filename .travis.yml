@@ -1,6 +1,11 @@
 sudo: false
-
+dist: trusty
 language: ruby
+cache:
+  bundler: true
+  directories:
+    - /home/travis/.rvm
+    - /usr/local/bundle
 
 rvm:
   - 2.6.2
@@ -18,7 +23,6 @@ rvm:
   - 2.4.0
 
 before_install:
-  - bundle update
   - gem update --system
   - cp .travis/evostream-configuration.yml ~/.evostream-configuration.yml
 
