@@ -43,7 +43,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'reek', '~> 4.8'
   spec.add_development_dependency 'rspec', '~> 3.5', '>= 3.5.0'
-  spec.add_development_dependency 'rubocop', '~> 0.54.0'
+  spec.add_development_dependency 'rubocop', '~> 0.67.2'
   spec.add_development_dependency 'sinatra', '~> 2.0.1'
   spec.add_development_dependency 'travis', '~> 1.8', '>= 1.8.4'
   spec.add_development_dependency 'webmock', '~> 2.3', '>= 2.3.2'

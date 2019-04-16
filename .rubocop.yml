@@ -7,15 +7,13 @@ AllCops:
   TargetRubyVersion: 2.4
 
 ### METRICS ###
-Metrics/LineLength:
-  Max: 80
-
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
     - evostream-event.gemspec
 
 Metrics/LineLength:
+  Max: 80
   Exclude:
     - spec/**/*
 
