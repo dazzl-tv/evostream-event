@@ -170,7 +170,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.13)
   capybara (~> 2.13)
   evostream-event!
   faker (~> 1.7, >= 1.7.3)
@@ -187,4 +186,4 @@ DEPENDENCIES
   yard (~> 0.9.11)
 
 BUNDLED WITH
-   1.17.3
+   2.0.1

@@ -35,7 +35,6 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.4.0'
 
-  spec.add_development_dependency 'bundler', '~> 1.13'
   spec.add_development_dependency 'capybara', '~> 2.13'
   spec.add_development_dependency 'faker', '~> 1.7', '>= 1.7.3'
   spec.add_development_dependency 'fuubar', '~> 2.2'
