@@ -6,7 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.2] - 2019-04-16
+###[Fixed]
 - Remove useless dependency to pry and bundler
+- Fix require rspec for rakefile
 
 ## [1.0.2] - 2018-03-27
 ###[Fixed]
