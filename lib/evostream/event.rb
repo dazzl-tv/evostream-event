@@ -41,8 +41,6 @@ module Evostream
   end
 
   class << self
-    private_class_method
-
     def request_test(command)
       json = JSON.parse(File.read(find_fixture(command)))
       Net::HTTPSuccess.mock(json)

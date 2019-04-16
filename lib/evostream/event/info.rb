@@ -26,7 +26,7 @@ module Evostream
   # Define a long description to gem
   DESCRIPTION = <<-DESC
   Manipulate event evostream and send actions to evostream server.
-    DESC
+  DESC
 
   # Define homepage
   HOMEPAGE = 'https://github.com/Dev-Crea/evostream-event'
