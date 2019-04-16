@@ -32,6 +32,7 @@ module Evostream
     end
 
     # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Naming/RescuedExceptionsVariableName
     def run(args = ARGV)
       @options.parse
 
@@ -45,13 +46,14 @@ module Evostream
       101
     rescue CodeError::Syntax::OptionInvalid
       100
-    rescue Evostream::Commands::Errors::MissingMandatory => e
-      $stdout.puts e.message.red
+    rescue Evostream::Commands::Errors::MissingMandatory => error
+      $stdout.puts error.message.red
       50
     rescue CodeError::Finished
       0
     end
     # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Naming/RescuedExceptionsVariableName
 
     private
 
