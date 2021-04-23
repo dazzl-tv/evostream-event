@@ -33,22 +33,19 @@ Gem::Specification.new do |spec|
 
   spec.post_install_message = Evostream::POST_INSTALL
 
-  spec.required_ruby_version = '>= 2.4.0'
+  spec.required_ruby_version = '>= 2.6.0'
 
-  spec.add_development_dependency 'capybara', '~> 2.13'
-  spec.add_development_dependency 'faker', '~> 1.7', '>= 1.7.3'
-  spec.add_development_dependency 'fuubar', '~> 2.2'
-  spec.add_development_dependency 'overcommit', '~> 0.34.2'
-  spec.add_development_dependency 'pry-byebug', '~> 3.4'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'reek', '~> 4.8'
-  spec.add_development_dependency 'rspec', '~> 3.5', '>= 3.5.0'
-  spec.add_development_dependency 'rubocop', '~> 0.67.2'
-  spec.add_development_dependency 'sinatra', '~> 2.0.1'
-  spec.add_development_dependency 'travis', '~> 1.8', '>= 1.8.4'
-  spec.add_development_dependency 'webmock', '~> 2.3', '>= 2.3.2'
-  spec.add_development_dependency 'yard', '~> 0.9.11'
+  spec.add_development_dependency 'capybara', '~> 3.35.3'
+  spec.add_development_dependency 'faker', '~> 2.17'
+  spec.add_development_dependency 'pry-byebug', '~> 3.9'
+  spec.add_development_dependency 'rake', '~> 13.0.3'
+  spec.add_development_dependency 'reek', '~> 6.0.3'
+  spec.add_development_dependency 'rspec', '~> 3.10'
+  spec.add_development_dependency 'rubocop', '~> 1.13.0'
+  spec.add_development_dependency 'sinatra', '~> 2.1.0'
+  spec.add_development_dependency 'webmock', '~> 3.12.2'
+  spec.add_development_dependency 'yard', '~> 0.9.26'
 
-  spec.add_runtime_dependency 'activesupport', '~> 4.2'
+  spec.add_runtime_dependency 'activesupport', '~> 6.1.3.1'
   spec.add_runtime_dependency 'colorize', '~> 0.8.1'
 end

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# :reek:UtilityFunction
+
 module Evostream
   module Events
     # Action inStreamCreated

@@ -4,7 +4,15 @@ AllCops:
   Exclude:
     - bin/**/*
     - vendor/**/*
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.6
+  NewCops: enable
+
+### LINTS ###
+Lint/MissingSuper:
+  Exclude:
+    - lib/evostream/cli/code_error.rb
+    - lib/evostream/cli/option/help.rb
+    - lib/evostream/cli/option/search.rb
 
 ### METRICS ###
 Metrics/BlockLength:

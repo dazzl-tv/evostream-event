@@ -12,9 +12,9 @@ module Evostream
         @result = nil
       end
 
-      def execute(type_flux = %w[hls dash])
+      def execute(type_flux = %w[hls dash], &block)
         Evostream.logger "Execute action for event #{class_name}"
-        type_flux.each { |flux| yield(flux) } if block_given?
+        type_flux.each(&block) if block_given?
         @result
       end
 

@@ -12,7 +12,7 @@ module Evostream
 
       def cmd
         super
-        "setLogLevel?params=#{encode_64}"
+        "setLogLevel?params=#{encode64}"
       end
 
       private

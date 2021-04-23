@@ -42,8 +42,8 @@ module Evostream
       end
 
       def ex_flux
-        Evostream::Service.uri_out + '/' + name_settings['groupName'] + '/' +
-          @request['name'] + '/' + name_settings[name_flux]
+        "#{Evostream::Service.uri_out}/#{name_settings['groupName']}" \
+          "/#{@request['name']}/#{name_settings[name_flux]}"
       end
 
       def select_key_setting

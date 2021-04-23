@@ -46,7 +46,7 @@ RSpec.configure do |config|
   # Configure test Net::HTTP
   config.before(:each, type: :request) do
     stub_request(:get, /server_stream.local/)
-      .with(headers: { 'Accept': '*/*', 'User-Agent': 'Ruby' })
+      .with(headers: { Accept: '*/*', 'User-Agent': 'Ruby' })
       .to_return(status: 200, body: '', headers: {})
   end
 
@@ -68,7 +68,9 @@ class Test
 end
 
 # Class for testing model stream
+# rubocop:disable Lint/EmptyClass
 class Hls; end
 
 # Class for testing model stream
 class Dash; end
+# rubocop:enable Lint/EmptyClass

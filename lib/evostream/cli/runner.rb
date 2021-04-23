@@ -20,6 +20,7 @@ require 'event'
 # :reek:TooManyStatements
 # :reek:DuplicateMethodCall
 # :reek:NilCheck
+# :reek:UtilityFunction
 
 module Evostream
   # Execute CLI with this gem
