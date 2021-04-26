@@ -4,9 +4,7 @@ name: Ruby
 
 on:
   push:
-    branches:
-      - feature/*
-      - develop
+    branches: [ develop ]
 
 jobs:
   test:
