@@ -19,7 +19,7 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
+    - name: Configure gem
+      run: cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
     - name: Run tests
-      run:
-        - .github/evostream-configuration.yml ~/.evostream-configuration.yml
-        - bundle exec rake
+      run: bundle exec rake
