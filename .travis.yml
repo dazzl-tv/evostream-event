@@ -25,7 +25,7 @@ before_install:
   - gem install bundler
   - gem update --system
   - cp .travis/evostream-configuration.yml ~/.evostream-configuration.yml
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then rm Gemfile.lock; fi
+  - rm Gemfile.lock
 
 script:
   - bundle exec rake spec
