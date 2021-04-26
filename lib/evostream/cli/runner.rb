@@ -5,7 +5,6 @@ require 'colorize'
 require 'timeout'
 require 'socket'
 require 'yaml'
-require 'yaml/dbm'
 
 $LOAD_PATH.unshift(__dir__)
 require 'option'
