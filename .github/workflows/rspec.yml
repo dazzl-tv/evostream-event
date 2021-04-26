@@ -1,6 +1,6 @@
 ---
 
-name: Ruby
+name: RSpec
 
 on:
   push:
