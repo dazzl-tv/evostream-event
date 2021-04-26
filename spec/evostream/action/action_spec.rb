@@ -33,7 +33,7 @@ describe Evostream::Action, type: :request do
 
   describe 'remove_config' do
     let(:action_name) { 'removeConfig' }
-    let(:payload) { { id: Faker::Number.between(1, 999_999) } }
+    let(:payload) { { id: Faker::Number.between(from: 1, to: 999_999) } }
 
     context 'global Evostream variable' do
       include_examples 'test request action'

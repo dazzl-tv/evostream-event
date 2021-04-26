@@ -6,7 +6,7 @@ describe Evostream::Commands::GetStreamInfo do
   let(:command) { Evostream::Commands::GetStreamInfo }
 
   context 'id' do
-    let(:cmd) { { id: Faker::Number.between(1, 999).to_s } }
+    let(:cmd) { { id: Faker::Number.between(from: 1, to: 999).to_s } }
 
     include_examples 'command'
   end
