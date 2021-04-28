@@ -16,6 +16,8 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+    - name: Update Bundler
+      run: bundle update --bundler
     - name: Rubocop
       run: bundle exec rubocop
     - name: Reek
