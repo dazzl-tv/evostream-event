@@ -9,7 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        linter: ['rubocop', 'reek']
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
@@ -20,7 +22,5 @@ jobs:
       run: |
         gem install --no-document bundler:2.2.16
         bundle install
-    - name: Rubocop
-      run: bundle exec rubocop
-    - name: Reek
-      run: bundle exec reek
+    - name: Run linters
+      run: bundle exec ${{ matrix.linter }}
