@@ -20,7 +20,8 @@ Metrics/BlockLength:
     - spec/**/*
     - evostream-event.gemspec
 
-Metrics/LineLength:
+### LAYOUTS ###
+Layout/LineLength:
   Max: 80
   Exclude:
     - spec/**/*
