@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'faker', '~> 2.17'
   spec.add_development_dependency 'pry-byebug', '~> 3.9'
   spec.add_development_dependency 'rake', '~> 13.0.3'
-  spec.add_development_dependency 'reek', '~> 6.0.3'
+  spec.add_development_dependency 'reek', '~> 6.0.4'
   spec.add_development_dependency 'rspec', '~> 3.10'
   spec.add_development_dependency 'rubocop', '~> 1.13.0'
   spec.add_development_dependency 'rubocop-faker', '~> 1.1'
