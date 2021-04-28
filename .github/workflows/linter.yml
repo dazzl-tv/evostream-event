@@ -19,7 +19,7 @@ jobs:
     - name: Install gems
       run: |
         gem install --no-document bundler:2.2.16
-        gem install
+        bundle install
     - name: Rubocop
       run: bundle exec rubocop
     - name: Reek
