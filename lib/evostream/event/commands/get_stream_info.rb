@@ -12,7 +12,7 @@ module Evostream
 
       def cmd
         super
-        "getStreamInfo?params=#{encode_64}"
+        "getStreamInfo?params=#{encode64}"
       end
 
       private

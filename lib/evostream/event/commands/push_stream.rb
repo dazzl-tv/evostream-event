@@ -14,7 +14,7 @@ module Evostream
 
       def cmd
         super
-        "pushStream?params=#{encode_64}"
+        "pushStream?params=#{encode64}"
       end
 
       private

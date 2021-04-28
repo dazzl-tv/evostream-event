@@ -12,7 +12,7 @@ module Evostream
 
       def cmd
         super
-        "listStreams?params=#{encode_64}"
+        "listStreams?params=#{encode64}"
       end
 
       private

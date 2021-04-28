@@ -13,7 +13,7 @@ module Evostream
 
       def cmd
         super
-        "removeConfig?params=#{encode_64}"
+        "removeConfig?params=#{encode64}"
       end
 
       private

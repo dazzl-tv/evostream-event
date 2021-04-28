@@ -30,7 +30,7 @@ module Evostream
       private
 
       # Encode commands in base 64 with space between each command
-      def encode_64
+      def encode64
         Base64.strict_encode64(@command.join(' '))
       end
 

@@ -16,7 +16,7 @@ describe Evostream::Commands::CreateDASH do
     let(:cmd) do
       {
         local_stream_names: Faker::Games::Pokemon.name,
-        target_folder: Faker::File.file_name('/path/to')
+        target_folder: Faker::File.file_name(dir: '/path/to')
       }
     end
 

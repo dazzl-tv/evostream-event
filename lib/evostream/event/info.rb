@@ -6,7 +6,7 @@
 # Define constant to gem.
 module Evostream
   # Define version to gem
-  VERSION = '1.0.3'
+  VERSION = '2.0.0'
 
   # Name to gem
   GEM_NAME = 'evostream-event'

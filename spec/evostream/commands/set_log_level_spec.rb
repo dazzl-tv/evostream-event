@@ -6,7 +6,7 @@ describe Evostream::Commands::SetLogLevel do
   let(:command) { Evostream::Commands::SetLogLevel }
 
   context 'level' do
-    let(:cmd) { { level: Faker::Number.between(0, 6).to_s } }
+    let(:cmd) { { level: Faker::Number.between(from: 0, to: 6).to_s } }
 
     include_examples 'command'
   end
