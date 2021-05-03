@@ -4,6 +4,7 @@ require 'spec_helper'
 
 describe Evostream::CLI::Argument::Port, type: :cli do
   before { ARGV.push('--port') }
+
   after { ARGV.pop }
 
   let(:runner) { Evostream::Runner.new }
@@ -18,6 +19,7 @@ describe Evostream::CLI::Argument::Port, type: :cli do
 
   context 'when argumentw with port given', broken: true do
     before { ARGV.push(5489) }
+
     after { ARGV.pop }
 
     let(:out) { /No command executed !! No command precise\./ }

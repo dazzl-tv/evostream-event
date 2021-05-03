@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Evostream::Events::OutStreamCreated do
   let(:type_default) { 'outStreamCreated' }
 
-  context 'HLS Flux' do
+  context 'with HLS Flux' do
     let(:body) do
       {
         id: Faker::Number.between(from: 1, to: 999_999),
@@ -93,7 +93,7 @@ describe Evostream::Events::OutStreamCreated do
       }
     end
 
-    context 'payload is correct' do
+    context 'when payload is correct' do
       let(:type) { body[:type] }
       let(:payload) { body[:payload] }
       let(:type_stream) { 'Hls' }
@@ -101,7 +101,7 @@ describe Evostream::Events::OutStreamCreated do
       include_examples 'payload is correct', false
     end
 
-    context 'payload isn\'t correct' do
+    context 'when payload isn\'t correct' do
       let(:body) { Faker::Lorem.paragraph }
       let(:type) { Faker::Games::Zelda.character }
       let(:payload) { Faker::Games::Zelda.game }
@@ -110,7 +110,7 @@ describe Evostream::Events::OutStreamCreated do
     end
   end
 
-  context 'DASH Flux' do
+  context 'with DASH Flux' do
     let(:body) do
       {
         id: Faker::Number.between(from: 1, to: 999_999),
@@ -184,7 +184,7 @@ describe Evostream::Events::OutStreamCreated do
       }
     end
 
-    context 'payload is correct' do
+    context 'when payload is correct' do
       let(:type) { body[:type] }
       let(:payload) { body[:payload] }
       let(:type_stream) { 'Dash' }
@@ -192,7 +192,7 @@ describe Evostream::Events::OutStreamCreated do
       include_examples 'payload is correct', false
     end
 
-    context 'payload isn\'t correct' do
+    context 'when payload isn\'t correct' do
       let(:body) { Faker::Lorem.paragraph }
       let(:type) { Faker::Games::Zelda.character }
       let(:payload) { Faker::Games::Zelda.game }
