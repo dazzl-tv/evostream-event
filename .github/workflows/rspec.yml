@@ -12,6 +12,8 @@ jobs:
     strategy:
       matrix:
         ruby-version: ['2.6', '2.7', '3.0']
+    env:
+      BUNDLE_DEPLOYMeNT: "true"
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
@@ -19,7 +21,6 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
-    - run: bundle config --local deployment false
     - name: Run tests
       run: |
         cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
