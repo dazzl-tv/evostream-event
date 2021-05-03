@@ -18,7 +18,6 @@ jobs:
       uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       with:
         ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true
     - name: Run tests
       run: |
         cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
