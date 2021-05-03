@@ -1,30 +1,26 @@
 # frozen_string_literal: true
 
-require 'sinatra/base'
+require 'webmock/rspec'
 
 # Fake class for testing response to pushCommand
-class FakeEvostream < Sinatra::Base
-  get '/pushStream' do
-    json_response 200, :push_stream
+class FakeEvostream
+  def self.request
+    WebMock::API.stub_request(:any, /server_stream.local/)
   end
 
-  get '/createDASHStream' do
-    json_response 200, :create_dash_stream
+  def self.push_stream
+    request.to_return(json_response(:push_stream))
   end
 
-  get '/createHLSStream' do
-    json_response 200, :create_hls_stream
+  def self.remove_config
+    request.to_return(json_response(:remove_config))
   end
 
-  get '/removeConfig' do
-    json_response 200, :remove_config
-  end
-
-  private
-
-  def json_response(response_code, file_name)
-    content_type :json
-    status response_code
-    File.open("#{File.dirname(__FILE__)}/fixtures/#{file_name}.json")
+  def self.json_response(file_name)
+    {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: File.open("#{File.dirname(__FILE__)}/fixtures/#{file_name}.json")
+    }
   end
 end
