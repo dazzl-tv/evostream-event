@@ -6,7 +6,7 @@
 # Define constant to gem.
 module Evostream
   # Define version to gem
-  VERSION = '2.0.1'
+  VERSION = '2.0.0'
 
   # Name to gem
   GEM_NAME = 'evostream-event'
@@ -29,7 +29,7 @@ module Evostream
   DESC
 
   # Define homepage
-  HOMEPAGE = 'https://github.com/Dev-Crea/evostream-event'
+  HOMEPAGE = 'https://github.com/dazzl-tv/evostream-event'
 
   # Define a post install message
   POST_INSTALL = \

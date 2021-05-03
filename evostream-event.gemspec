@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'evostream/event/info'
 
 Gem::Specification.new do |spec|
-  spec.version = if ENV['GITHUB_REF'].eql?('develop')
+  spec.version = if ENV['GITHUB_REF'].eql?('refs/heads/develop')
                    "#{Evostream::VERSION}.pre.#{ENV['GITHUB_RUN_ID']}"
                  else
                    Evostream::VERSION

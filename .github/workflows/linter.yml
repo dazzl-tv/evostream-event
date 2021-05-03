@@ -4,7 +4,9 @@ name: Linter
 
 on:
   push:
-    branches: [ develop ]
+    branches-ignore:
+      - master
+      - develop
 
 jobs:
   test:
