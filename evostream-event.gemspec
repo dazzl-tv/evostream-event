@@ -35,7 +35,6 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.6.0'
 
-  spec.add_development_dependency 'capybara', '~> 3.35.3'
   spec.add_development_dependency 'faker', '~> 2.17'
   spec.add_development_dependency 'pry-byebug', '~> 3.9'
   spec.add_development_dependency 'rake', '~> 13.0.3'
@@ -43,7 +42,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.10'
   spec.add_development_dependency 'rubocop', '~> 1.13.0'
   spec.add_development_dependency 'rubocop-faker', '~> 1.1'
-  spec.add_development_dependency 'sinatra', '~> 2.1.0'
   spec.add_development_dependency 'webmock', '~> 3.12.2'
   spec.add_development_dependency 'yard', '~> 0.9.26'
 

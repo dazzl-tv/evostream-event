@@ -7,7 +7,6 @@ require 'evostream/event'
 require 'faker'
 require 'json'
 require 'webmock/rspec'
-require 'capybara/rspec'
 require 'active_support/core_ext/hash'
 
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
@@ -48,10 +47,6 @@ RSpec.configure do |config|
     stub_request(:get, /server_stream.local/)
       .with(headers: { Accept: '*/*', 'User-Agent': 'Ruby' })
       .to_return(status: 200, body: '', headers: {})
-  end
-
-  config.before(:each, type: :response) do
-    stub_request(:any, /server_stream.local/).to_rack(FakeEvostream)
   end
 
   config.before(:each, type: :cli) do
