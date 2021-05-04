@@ -3,7 +3,8 @@
   [![Linter](https://github.com/dazzl-tv/evostream-event/actions/workflows/linter.yml/badge.svg)](https://github.com/dazzl-tv/evostream-event/actions/workflows/linter.yml)
   [![Gem Version](https://badge.fury.io/rb/evostream-event.svg)](https://badge.fury.io/rb/evostream-event)
   [![Docs](https://inch-ci.org/github/dazzl-tv/evostream-event.svg)](https://inch-ci.org/github/dazzl-tv/evostream-event)
-  [![Maintainability](https://api.codeclimate.com/v1/badges/8fc5d78d80473fd9ae3e/maintainability)](https://codeclimate.com/github/dazzl-tv/evostream-event/maintainability)
+  [![Maintainability](https://api.codeclimate.com/v1/badges/e3096c50f57e0cb1b83a/maintainability)](https://codeclimate.com/github/dazzl-tv/evostream-event/maintainability)
+  [![Test Coverage](https://api.codeclimate.com/v1/badges/e3096c50f57e0cb1b83a/test_coverage)](https://codeclimate.com/github/dazzl-tv/evostream-event/test_coverage)
   [![Known Vulnerabilities](https://snyk.io/test/github/dazzl-tv/evostream-event/badge.svg)](https://snyk.io/test/github/dazzl-tv/evostream-event)
 
 Evostream Event listen event to Evostream and execute task.
