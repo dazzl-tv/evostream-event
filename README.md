@@ -1,8 +1,8 @@
 # Evostream::Event
-  ![RSpec](https://github.com/dazzl-tv/evostream-event/actions/workflows/rspec.yml/badge.svg)
-  ![Linters](https://github.com/dazzl-tv/evostream-event/actions/workflows/linter.yml/badge.svg)
+  [![RSpec](https://github.com/dazzl-tv/evostream-event/actions/workflows/rspec.yml/badge.svg?branch=develop&event=pull_request)](https://github.com/dazzl-tv/evostream-event/actions/workflows/rspec.yml)
+  [![Linter](https://github.com/dazzl-tv/evostream-event/actions/workflows/linter.yml/badge.svg)](https://github.com/dazzl-tv/evostream-event/actions/workflows/linter.yml)
   [![Gem Version](https://badge.fury.io/rb/evostream-event.svg)](https://badge.fury.io/rb/evostream-event)
-  [![inline docs](https://inch-ci.org/github/dazzl-tv/evostream-event.svg)](https://inch-ci.org/github/dazzl-tv/evostream-event)
+  [![Docs](https://inch-ci.org/github/dazzl-tv/evostream-event.svg)](https://inch-ci.org/github/dazzl-tv/evostream-event)
   [![Maintainability](https://api.codeclimate.com/v1/badges/8fc5d78d80473fd9ae3e/maintainability)](https://codeclimate.com/github/dazzl-tv/evostream-event/maintainability)
   [![Known Vulnerabilities](https://snyk.io/test/github/dazzl-tv/evostream-event/badge.svg)](https://snyk.io/test/github/dazzl-tv/evostream-event)
 
