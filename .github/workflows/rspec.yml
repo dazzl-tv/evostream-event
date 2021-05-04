@@ -4,7 +4,12 @@ name: RSpec
 
 on:
   pull_request:
-    branches: [ develop ]
+    branches:
+      - develop
+  push:
+    branches-ignore:
+      - develop
+      - master
 
 jobs:
   test:
