@@ -28,10 +28,11 @@ jobs:
       run: |
         cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
         bundle exec rake
-    - name: Coverage
+    - name: Publish code coverage
       uses: paambaati/codeclimate-action@v2.7.5
       env:
         CC_TEST_REPORTER_ID: "${{secrets.CC_TEST_REPORTER_ID}}"
       with:
-        coverageLocations: ${{github.workspace}}/coverage:simplecov
+        coverageLocations: |
+          ${{github.workspace}}/coverage/coverage.json:simplecov
         debug: true
