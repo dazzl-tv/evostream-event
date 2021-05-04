@@ -28,7 +28,6 @@ jobs:
       run: |
         cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
         bundle exec rake
-    steps:
     - name: Coverage
       uses: paambaati/codeclimate-action@v2.7.5
       env:
