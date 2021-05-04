@@ -3,9 +3,9 @@
 require 'spec_helper'
 
 describe Evostream::Commands::CreateDASH do
-  let(:command) { Evostream::Commands::CreateDASH }
+  let(:command) { described_class }
 
-  context 'manifest_name' do
+  context 'when manifest_name' do
     let(:arg_value) { Faker::Games::Pokemon.name }
     let(:argument) { 'manifest_name' }
 

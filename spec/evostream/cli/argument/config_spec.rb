@@ -4,6 +4,7 @@ require 'spec_helper'
 
 describe Evostream::CLI::Argument::Config do
   before { ARGV.push('--config') }
+
   after { ARGV.pop }
 
   let(:runner) { Evostream::Runner.new }
@@ -18,6 +19,7 @@ describe Evostream::CLI::Argument::Config do
 
   context 'when argument with exit file', broken: true do
     before { ARGV.push('.travis/evostream-configuration.yml') }
+
     after { ARGV.pop }
 
     let(:out) { /Connection to Evostream REFUSED !!/ }

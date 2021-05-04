@@ -3,14 +3,14 @@
 require 'spec_helper'
 
 describe Evostream::Action, type: :request do
-  let(:action) { Evostream::Action.new(payload) }
+  let(:action) { described_class.new(payload) }
   let(:payload) { {} }
 
-  it 'should be a hash' do
+  it 'is a hash' do
     expect(action.instance_variable_get(:@payload)).to be_kind_of(Hash)
   end
 
-  describe 'push_stream' do
+  describe 'when push_stream' do
     let(:action_name) { 'pushStream' }
     let(:payload) do
       {
@@ -20,27 +20,27 @@ describe Evostream::Action, type: :request do
       }
     end
 
-    context 'global Evostream variable' do
+    context 'with global Evostream variable' do
       include_examples 'test request action'
     end
 
-    context 'local Evostream variable' do
-      let(:action) { Evostream::Action.new(payload, 'evostream.dazzl.local') }
+    context 'with local Evostream variable' do
+      let(:action) { described_class.new(payload, 'evostream.dazzl.local') }
 
       include_examples 'test request action'
     end
   end
 
-  describe 'remove_config' do
+  describe 'when remove_config' do
     let(:action_name) { 'removeConfig' }
     let(:payload) { { id: Faker::Number.between(from: 1, to: 999_999) } }
 
-    context 'global Evostream variable' do
+    context 'with global Evostream variable' do
       include_examples 'test request action'
     end
 
-    context 'local Evostream variable' do
-      let(:action) { Evostream::Action.new(payload, 'evostream.dazzl.local') }
+    context 'with local Evostream variable' do
+      let(:action) { described_class.new(payload, 'evostream.dazzl.local') }
 
       include_examples 'test request action'
     end

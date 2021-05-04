@@ -4,6 +4,6 @@ require 'spec_helper'
 
 describe Evostream::Events::Event do
   it 'has a three childern class' do
-    expect(Evostream::Events::Event.descendants.count).to eql(3)
+    expect(described_class.descendants.count).to be(3)
   end
 end

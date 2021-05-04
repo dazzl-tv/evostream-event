@@ -9,6 +9,7 @@ describe Evostream::CLI::Argument::Version do
 
   context 'when short argument' do
     before { ARGV.push('-v') }
+
     after { ARGV.pop }
 
     include_examples 'argument exit'
@@ -17,6 +18,7 @@ describe Evostream::CLI::Argument::Version do
 
   context 'when long argument' do
     before { ARGV.push('--version') }
+
     after { ARGV.pop }
 
     include_examples 'argument exit'

@@ -8,6 +8,11 @@ require 'faker'
 require 'json'
 require 'webmock/rspec'
 require 'active_support/core_ext/hash'
+require 'simplecov'
+require 'simplecov_json_formatter'
+
+SimpleCov.start
+SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
 
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
@@ -22,6 +27,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # Stop when rspec fail
+  config.fail_fast = true
 
   # Disable all remote connections
   WebMock.disable_net_connect!(allow_localhost: true)
@@ -50,8 +58,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :cli) do
-    server = double('server').as_null_object
-    TCPSocket.stub(:new).and_return(server)
+    TCPSocket.stub(:new).and_return(instance_double('server').as_null_object)
   end
 end
 
