@@ -44,6 +44,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-faker', '~> 1.1'
   spec.add_development_dependency 'rubocop-performance', '~> 1.11', '>= 1.11.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.3'
+  spec.add_development_dependency 'simplecov', '~> 0.21.2'
   spec.add_development_dependency 'webmock', '~> 3.12.2'
   spec.add_development_dependency 'yard', '~> 0.9.26'
 
