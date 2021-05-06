@@ -1,11 +1,10 @@
 ---
 
-exclude_paths:
-  - vendor/
+detectors:
+  IrresponsibleModule:
+    enabled: false
 
-UtilityFunction:
-  public_methods_only: true
-
-Attribute:
-  exclude:
-    - "Evostream::Event::Service"
+directories:
+  "lib/evostream/event":
+    TooManyConstants:
+      enabled: false
