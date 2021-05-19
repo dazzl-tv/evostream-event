@@ -9,10 +9,6 @@ require 'json'
 require 'webmock/rspec'
 require 'active_support/core_ext/hash'
 require 'simplecov'
-require 'simplecov_json_formatter'
-
-SimpleCov.start
-SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
 
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
