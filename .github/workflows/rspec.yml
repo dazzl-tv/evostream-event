@@ -26,11 +26,11 @@ jobs:
       run: |
         cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
         bundle exec rake
-      - uses: actions/upload-artifact@v2
-        with:
-          name: result-test
-          path: ${{ github.workspace }}/coverage/
-          if-no-files-found: error
+    - uses: actions/upload-artifact@v2
+      with:
+        name: result-test
+        path: ${{ github.workspace }}/coverage/
+        if-no-files-found: error
   coverage:
     needs: [ test ]
     name: coverage
