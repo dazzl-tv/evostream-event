@@ -3,8 +3,10 @@
 name: RSpec
 
 on:
-  pull_request:
+  push:
     branches:
+      - bugfix/*
+      - master
       - develop
 
 jobs:
@@ -24,10 +26,25 @@ jobs:
       run: |
         cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
         bundle exec rake
-    - name: Publish code coverage
-      uses: paambaati/codeclimate-action@v2.7.5
-      env:
-        CC_TEST_REPORTER_ID: "${{secrets.CC_TEST_REPORTER_ID}}"
+    - uses: actions/upload-artifact@v2
       with:
-        coverageLocations: |
-          ${{github.workspace}}/coverage/coverage.json:simplecov
+        name: result-test
+        path: ${{ github.workspace }}/coverage/
+        if-no-files-found: error
+  coverage:
+    needs: [ test ]
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: result-test
+          path: coverage/
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v2.6.0
+        env:
+          CC_TEST_REPORTER_ID: "${{ secrets.CC_TEST_REPORTER_ID }}"
+        with:
+          debug: true
+          coverageLocations: |
+            ${{ github.workspace }}/coverage/coverage.json:simplecov
