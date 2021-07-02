@@ -9,6 +9,7 @@ describe Evostream::CLI::Argument::Command do
 
   context 'when short argument' do
     before { ARGV.push('-c') }
+
     after { ARGV.pop }
 
     include_examples 'argument exit'
@@ -17,6 +18,7 @@ describe Evostream::CLI::Argument::Command do
 
   context 'when long argument' do
     before { ARGV.push('--commands') }
+
     after { ARGV.pop }
 
     include_examples 'argument exit'

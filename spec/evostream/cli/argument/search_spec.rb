@@ -7,6 +7,7 @@ describe Evostream::CLI::Argument::Search, broken: true do
 
   context 'when short argument' do
     before { ARGV.push('--search') }
+
     after { ARGV.pop }
 
     context 'when argument with no search data' do
@@ -19,6 +20,7 @@ describe Evostream::CLI::Argument::Search, broken: true do
 
     context 'when argument with search data', broken: true do
       before { ARGV.push('id: 4') }
+
       after { ARGV.pop }
 
       let(:out) { /Connection to Evostream REFUSED !!/ }

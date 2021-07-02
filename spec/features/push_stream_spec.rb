@@ -2,8 +2,10 @@
 
 require 'spec_helper'
 
-feature 'PushStream', type: :response,
-                      name: :pushStream do
+describe 'PushStream', type: :request,
+                       name: :pushStream do
+  before { FakeEvostream.push_stream }
+
   it do
     uri = URI('http://server_stream.local/pushStream?params=dXJpPXJ0')
 

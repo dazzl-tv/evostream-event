@@ -2,8 +2,10 @@
 
 require 'spec_helper'
 
-feature 'RemoveConfig', type: :response,
-                        name: :removeConfig do
+describe 'RemoveConfig', type: :request,
+                         name: :removeConfig do
+  before { FakeEvostream.remove_config }
+
   it do
     uri = URI('http://server_stream.local/removeConfig?params=dXJpPXJ0')
 

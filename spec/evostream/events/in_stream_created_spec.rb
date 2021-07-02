@@ -58,14 +58,14 @@ describe Evostream::Events::InStreamCreated, type: :request do
 
   let(:type_default) { 'inStreamCreated' }
 
-  context 'payload is correct' do
+  context 'when payload is correct' do
     let(:type) { body[:type] }
     let(:payload) { body[:payload] }
 
     include_examples 'payload is correct'
   end
 
-  context 'payload isn\'t correct' do
+  context 'when payload isn\'t correct' do
     let(:body) { Faker::Lorem.paragraph }
     let(:type) { Faker::Games::Zelda.character }
     let(:payload) { Faker::Games::Zelda.game }

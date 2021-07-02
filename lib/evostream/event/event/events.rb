@@ -14,7 +14,7 @@ module Evostream
 
       def execute(type_flux = %w[hls dash], &block)
         Evostream.logger "Execute action for event #{class_name}"
-        type_flux.each(&block) if block_given?
+        type_flux.each(&block) if block
         @result
       end
 

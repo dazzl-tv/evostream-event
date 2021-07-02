@@ -1,4 +1,11 @@
-# Evostream::Event | [![Build Status](https://travis-ci.org/Dev-Crea/evostream-event.svg?branch=master)](https://travis-ci.org/Dev-Crea/evostream-event) [![Gem Version](https://badge.fury.io/rb/evostream-event.svg)](https://badge.fury.io/rb/evostream-event) [![inline docs](https://inch-ci.org/github/Dev-Crea/evostream-event.svg)](https://inch-ci.org/github/Dev-Crea/evostream-event) [![Maintainability](https://api.codeclimate.com/v1/badges/8fc5d78d80473fd9ae3e/maintainability)](https://codeclimate.com/github/Dev-Crea/cli-evostream/maintainability)
+# Evostream::Event
+  [![RSpec](https://github.com/dazzl-tv/evostream-event/actions/workflows/rspec.yml/badge.svg)](https://github.com/dazzl-tv/evostream-event/actions/workflows/rspec.yml)
+  [![Linter](https://github.com/dazzl-tv/evostream-event/actions/workflows/linter.yml/badge.svg)](https://github.com/dazzl-tv/evostream-event/actions/workflows/linter.yml)
+  [![Gem Version](https://badge.fury.io/rb/evostream-event.svg)](https://badge.fury.io/rb/evostream-event)
+  [![Docs](https://inch-ci.org/github/dazzl-tv/evostream-event.svg)](https://inch-ci.org/github/dazzl-tv/evostream-event)
+  [![Maintainability](https://api.codeclimate.com/v1/badges/aeb223699c46a3e6e76c/maintainability)](https://codeclimate.com/github/dazzl-tv/evostream-event/maintainability)
+  [![Test Coverage](https://api.codeclimate.com/v1/badges/aeb223699c46a3e6e76c/test_coverage)](https://codeclimate.com/github/dazzl-tv/evostream-event/test_coverage)
+  [![Known Vulnerabilities](https://snyk.io/test/github/dazzl-tv/evostream-event/badge.svg)](https://snyk.io/test/github/dazzl-tv/evostream-event)
 
 Evostream Event listen event to Evostream and execute task.
 
@@ -116,6 +123,6 @@ git commits and tags, and push the `.gem` file to
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/Dev-Crea/evostream-event. This project is intended to be a
+https://github.com/dazzl-tv/evostream-event. This project is intended to be a
 safe, welcoming space for collaboration, and contributors are expected to adhere
 to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.

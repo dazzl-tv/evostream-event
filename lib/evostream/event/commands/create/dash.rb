@@ -15,7 +15,7 @@ module Evostream
 
       def cmd
         super
-        "createDASHStream?params=#{encode_64}"
+        "createDASHStream?params=#{encode64}"
       end
 
       private

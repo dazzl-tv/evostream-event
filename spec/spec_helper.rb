@@ -7,8 +7,8 @@ require 'evostream/event'
 require 'faker'
 require 'json'
 require 'webmock/rspec'
-require 'capybara/rspec'
 require 'active_support/core_ext/hash'
+require 'simplecov'
 
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
@@ -23,6 +23,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # Stop when rspec fail
+  config.fail_fast = true
 
   # Disable all remote connections
   WebMock.disable_net_connect!(allow_localhost: true)
@@ -50,13 +53,8 @@ RSpec.configure do |config|
       .to_return(status: 200, body: '', headers: {})
   end
 
-  config.before(:each, type: :response) do
-    stub_request(:any, /server_stream.local/).to_rack(FakeEvostream)
-  end
-
   config.before(:each, type: :cli) do
-    server = double('server').as_null_object
-    TCPSocket.stub(:new).and_return(server)
+    TCPSocket.stub(:new).and_return(instance_double('server').as_null_object)
   end
 end
 

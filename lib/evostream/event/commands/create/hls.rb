@@ -17,7 +17,7 @@ module Evostream
 
       def cmd
         super
-        "createHLSStream?params=#{encode_64}"
+        "createHLSStream?params=#{encode64}"
       end
 
       private

@@ -29,7 +29,7 @@ module Evostream
   DESC
 
   # Define homepage
-  HOMEPAGE = 'https://github.com/Dev-Crea/evostream-event'
+  HOMEPAGE = 'https://github.com/dazzl-tv/evostream-event'
 
   # Define a post install message
   POST_INSTALL = \
