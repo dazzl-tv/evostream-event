@@ -24,7 +24,9 @@ jobs:
           bundler-cache: false
       - run: bundle install
       - name: Run tests
-        run: bundle exec rake
+        run: |
+          cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
+          bundle exec rake
       - name: Publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
