@@ -16,36 +16,23 @@ jobs:
       matrix:
         ruby-version: ['2.6', '2.7', '3.0']
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: false
-    - run: bundle install
-    - name: Run tests
-      run: |
-        cp .github/evostream-configuration.yml ~/.evostream-configuration.yml
-        bundle exec rake
-    - uses: actions/upload-artifact@v2
-      with:
-        name: result-test
-        path: ${{ github.workspace }}/coverage/
-        if-no-files-found: error
-  coverage:
-    needs: [ test ]
-    name: coverage
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v2
+      - name: Start MongoDB v${{ matrix.mongodb-version }}
+        uses: supercharge/mongodb-github-action@1.2.0
         with:
-          name: result-test
-          path: coverage/
+          mongodb-version: ${{ matrix.mongodb-version }}
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: false
+      - run: bundle install
+      - name: Run tests
+        run: bundle exec rake
       - name: Publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          CC_TEST_REPORTER_ID: "${{ secrets.CC_TEST_REPORTER_ID }}"
+          CC_TEST_REPORTER_ID: "${{secrets.CC_TEST_REPORTER_ID}}"
         with:
-          debug: true
           coverageLocations: |
-            ${{ github.workspace }}/coverage/coverage.json:simplecov
+            ${{github.workspace}}/coverage/coverage.json:simplecov
