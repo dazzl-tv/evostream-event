@@ -7,7 +7,8 @@ require 'evostream/event/info'
 
 Gem::Specification.new do |spec|
   version = Evostream::VERSION
-  spec.version       = if ENV.key?('GITHUB_RUN_ID')
+  spec.version       = if ENV.key?('GITHUB_RUN_ID') &&
+                          !ENV['GITHUB_REF'].eql?('refs/heads/master')
                          "#{version}.pre.#{ENV['GITHUB_RUN_ID']}"
                        else
                          version
