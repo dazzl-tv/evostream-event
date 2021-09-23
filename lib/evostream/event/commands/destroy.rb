@@ -5,7 +5,7 @@ module Evostream
   module Commands
     # Send command for destroy ressource to Evostream server
     class RemoveConfig < Command
-      MANDATORY = %w[id].freeze
+      MANDATORY = %w[].freeze
 
       def initialize(commands = { group_name: 'null', remove_hls_hds_files: 1 })
         super(commands)
