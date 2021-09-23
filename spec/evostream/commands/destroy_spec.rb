@@ -12,16 +12,14 @@ describe Evostream::Commands::Destroy do
   end
 
   context 'when remove_hls_hds_files' do
-    let(:arg_value) { Faker::Number.between(from: 0, to: 1) }
-    let(:argument) { 'remove_hls_hds_files' }
+    let(:cmd) { { remove_hls_hds_files: Faker::Number.between(from: 0, to: 1).to_s } }
 
-    include_examples 'command raise'
+    include_examples 'command'
   end
 
   context 'when group_name' do
-    let(:arg_value) { Faker::Games::Pokemon.name }
-    let(:argument) { 'group_name' }
+    let(:cmd) { { group_name: Faker::Games::Pokemon.name } }
 
-    include_examples 'command raise'
+    include_examples 'command'
   end
 end
