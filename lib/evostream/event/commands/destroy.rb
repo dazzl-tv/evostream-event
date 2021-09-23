@@ -3,7 +3,7 @@
 module Evostream
   # Concern all command sending to evoStream
   module Commands
-    # Abstract class for create element
+    # Send command for destroy ressource to Evostream server
     class RemoveConfig < Command
       MANDATORY = %w[id].freeze
 
